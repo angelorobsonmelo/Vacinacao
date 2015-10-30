@@ -1,0 +1,16 @@
+<md-content class="md-padding" >
+
+
+    <md-card  ng-repeat="campanha in campanhas | orderBy:'-sequencial'">
+
+        <md-card-content>
+            <h2 class="md-title">{{campanha.titulo}}</h2>
+            <p>
+                {{campanha.descricao}}
+            </p>
+        </md-card-content>
+
+    </md-card>
+    <br/>
+
+</md-content>

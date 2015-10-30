@@ -1,0 +1,43 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+   
+ <form ng-submit="salvarDose()" name="myForm">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Adicionar Vacina</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" type="button" ng-click="cancel()">
+        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="autoScroll">
+
+  
+  <md-input-container flex="100">
+    <label>Descrição</label>
+    <textarea rows="4" cols="50" name="descricao" id="descricao" ng-model="dose.descricao" ng-required="true">
+ 
+</textarea>
+   
+    <div ng-messages="myForm.descricao.$error" ng-show="myForm.descricao.$touched">
+      <div ng-message="required">Descrição Obrigatória.</div>
+    </div>
+  </md-input-container>
+  
+    
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+   
+    <span flex></span>
+   
+    <md-button type="button" ng-click="cancel()" class="md-primary">
+      Cancelar
+    </md-button>
+      <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+  </div>
+</form>
+</md-dialog>
+
+
+
+

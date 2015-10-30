@@ -1,0 +1,45 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+
+    <form ng-submit="enviarEmailParaRecuperacaoDeSenha()" name="myForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 style="color: white">Enviaremos as instruções para a recuperação da sua senha em seu e-mail</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" type="button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="autoScroll">
+
+
+
+
+            <md-input-container flex="100">
+                <label>Digite seu Email</label>
+                <input name="email" id="email" type="email" ng-model="usuario.email" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <div ng-messages="myForm.email.$error" ng-show="myForm.email.$touched">
+                    <div ng-message="required">Email Obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+
+
+
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+
+            <span flex></span>
+
+            <md-button type="button" ng-click="cancel()" class="md-primary">
+                Cancelar
+            </md-button>
+            <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+        </div>
+    </form>
+</md-dialog>
+
+
+
+

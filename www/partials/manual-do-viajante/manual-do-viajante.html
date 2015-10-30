@@ -1,0 +1,46 @@
+<md-input-container flex="100">
+    <md-select name="myselect" id="myselect" placeholder="Região" ng-model="regiao" ng-required="true"
+               ng-change="escolherRegiao()">
+        <md-option ng-repeat="regiao in regioes" ng-value="regiao">{{regiao.regiao}}</md-option>
+    </md-select>
+    <div ng-messages="myForm.myselect.$error" ng-show="myForm.myselect.$touched">
+        <div ng-message="required">Campo obrigatório.</div>
+    </div>
+</md-input-container>
+
+
+<md-content>
+
+
+    <div ng-if="resultadoVacinasPorRegiao.length >0">
+
+        <b><h5> Região <br/>{{resultadoVacinasPorRegiao[0].regiaoVO.nome}}</h5></b>
+    </div>
+
+    <div ng-if="resultadoVacinasPorRegiao.length == 0">
+
+        <b><h5> Região <br/>{{regiao.regiao}} ainda não foram registradas vacinas</h5></b>
+    </div>
+
+
+    <md-list>
+        <md-list-item
+                class="md-3-line"
+                ng-repeat="item in resultadoVacinasPorRegiao | orderBy:'item.vacinaVO.nome'">
+            <div class="md-list-item-text">
+                {{$index + 1}}
+                <h4> Vacina:</h4>
+                <h4>{{item.vacinaVO.nome}}</h4>
+                <h4>Descrição:</h4>
+
+                <p>{{item.vacinaVO.descricao}}</p>
+
+            </div>
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+
+
+</md-content>
+
+</div>

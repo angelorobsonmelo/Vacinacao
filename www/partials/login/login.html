@@ -1,0 +1,35 @@
+<div  layout="column">
+
+  <br/>
+  <md-content layout-padding class="autoScroll" aria-label="Login">
+    
+    <form ng-submit="loginConvencional()">
+    <md-input-container>
+      
+      <input ng-model="usuario.email" type="email" placeholder="Email (Obrigatório)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ng-required="true">
+    </md-input-container>
+       <md-input-container >
+    
+      <input ng-model="usuario.senha" type="password" placeholder="Senha (Obrigatório)" ng-required="true">
+      
+    </md-input-container>
+    
+    
+     <md-input-container >
+      <!-- Use floating placeholder instead of label -->
+       <md-button type="submit" class="md-raised md-primary">Login</md-button>
+      
+       <md-button type="button" class="md-raised md-primary"  ng-click="showAdvanced($event)">Cadastre-se</md-button>
+
+         <md-button type="button" class="md-raised md-primary"  ng-click="ModalEsqueceuSenha($event)">Esqueceu a senha?</md-button>
+
+
+    </md-input-container>
+    
+    
+    
+    </form>
+    
+  </md-content>
+    
+</div>

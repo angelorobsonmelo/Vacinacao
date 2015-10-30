@@ -1,0 +1,64 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+
+    <form ng-submit="salvarVacinaDoseIntervalo()" name="myForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Salvar Vacina Dose Intervalo</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" type="button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="autoScroll">
+
+
+            <md-input-container flex="100">
+                <md-select name="myselect" id="myselect" placeholder="Vacina" ng-model="vacina" ng-required="true"
+                        >
+                    <md-option ng-repeat="vacina in vacinas | orderBy: 'nome'" ng-value="vacina">{{vacina.nome}}</md-option>
+                </md-select>
+                <div ng-messages="myForm.myselect.$error" ng-show="myForm.myselect.$touched">
+                    <div ng-message="required">Campo obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100">
+                <md-select name="mySelectDoses" id="mySelectDoses" placeholder="Dose" ng-model="dose" ng-required="true"
+                        >
+                    <md-option ng-repeat="dose in doses | orderBy: 'descricao'" ng-value="dose">{{dose.descricao}}</md-option>
+                </md-select>
+                <div ng-messages="myForm.mySelectDoses.$error" ng-show="myForm.mySelectDoses.$touched">
+                    <div ng-message="required">Campo obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100">
+                <md-select name="mySelectIntervalo" id="mySelectIntervalo" placeholder="Intervalo" ng-model="intervalo" ng-required="true"
+                        >
+                    <md-option ng-repeat="intervalo in intervalos | orderBy: 'tempoIntervalo'" ng-value="intervalo">{{intervalo.tempoIntervalo}}</md-option>
+                </md-select>
+                <div ng-messages="myForm.mySelectIntervalo.$error" ng-show="myForm.mySelectIntervalo.$touched">
+                    <div ng-message="required">Campo obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+
+            <span flex></span>
+
+            <md-button type="button" ng-click="cancel()" class="md-primary">
+                Cancelar
+            </md-button>
+            <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+        </div>
+    </form>
+</md-dialog>
+
+
+
+

@@ -1,0 +1,101 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+   <form  ng-submit="inserirUsuario()">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Cadastro de Usuário</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+  
+
+    <md-input-container>
+      
+      <input ng-model="usuario.nome" type="text" placeholder="Nome (Obrigatório)" ng-required="true">
+    </md-input-container>
+    
+    
+     <md-input-container>
+      
+      <input ng-model="usuario.sobrenome" type="text" placeholder="Sobrenome (Obrigatório)" ng-required="true">
+    </md-input-container>
+  
+    <md-input-container>
+      
+      <input ng-model="usuario.email" type="email" placeholder="Email (Obrigatório)" ng-required="true">
+    </md-input-container>
+    
+      <md-input-container >
+    
+      <input ng-model="usuario.senha" type="password" placeholder="Senha (Obrigatório)" ng-required="true">
+      
+    </md-input-container>
+    
+      <md-input-container >
+    
+      <input ng-model="usuario.repetirSenha" type="password" placeholder="Repetir Senha (Obrigatório)" ng-required="true">
+      
+    </md-input-container>
+    
+    <md-input-container flex="100">
+    <md-select ng-model="usuario.genero"  name="myselect" id="myselect"  ng-required="true">
+      <md-select-label>{{ usuario.genero ? usuario.genero : 'Gênero' }}</md-select-label>
+      <md-option ng-value="gender.name" ng-repeat="gender in genders">{{gender.name}}</md-option>
+    </md-select>
+    
+<!--     <p class="md-caption">You have assigned the task to: {{ usuario.genero  ? usuario.genero : 'No one yet' }}</p> -->
+  <md-input-container>
+    
+    
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+   
+    <span flex></span>
+    <md-button type="button" ng-click="answer('not useful')" class="md-primary">
+     Not Useful
+    </md-button>
+    <md-button type="button" ng-click="answer('useful')" class="md-primary">
+      Useful
+    </md-button>
+     <md-button type="submit"  class="md-primary" >
+      Cadastrar
+    </md-button>
+  </div>
+  </form>
+</md-dialog>
+
+
+
+
+<form name="myForm" ng-app="myApp" ng-controller="myController" ng-submit="submit()" layout="row" layout-wrap>
+  <md-input-container flex="100">
+    <label>Name</label>
+    <input name="name" id="name" ng-model="obj.name" ng-required="true">
+    <div ng-messages="myForm.name.$error" ng-show="myForm.name.$touched">
+      <div ng-message="required">Campaign Name is required.</div>
+    </div>
+  </md-input-container>
+  <md-input-container flex="100">
+    <md-select name="myselect" id="myselect" placeholder="Select" ng-model="obj.myselect" ng-required="true">
+      <md-option ng-repeat="o in options" ng-value="o">{{o}}</md-option>
+    </md-select>
+    <div ng-messages="myForm.myselect.$error" ng-show="myForm.myselect.$touched">
+      <div ng-message="required">Select is required.</div>
+    </div>
+  </md-input-container>
+  <md-input-container flex="100">
+    <md-radio-group name="status" id="status" ng-model="obj.status" ng-required="true" class="">
+      <md-radio-button ng-repeat="s in statuses" ng-value="s">{{s}}</md-radio-button>
+    </md-radio-group>
+    <div ng-messages="myForm.status.$error" ng-show="myForm.status.$touched">
+      <div ng-message="required">Status is required.</div>
+    </div>
+  </md-input-container>
+  <div flex="100">
+    <md-button type="button" ng-click="reset()">RESET</md-button>
+    <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+  </div>
+</form>

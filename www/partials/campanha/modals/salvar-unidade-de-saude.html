@@ -1,0 +1,88 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+   
+ <form ng-submit="salvar()" name="myForm">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Adicionar Unidade de Saúde</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" type="button" ng-click="cancel()">
+        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="autoScroll">
+  
+
+  <md-input-container flex="100">
+    <label>Nome</label>
+    <input name="nome" id="nome" ng-model="unidadeDeSaude.nome" ng-required="true">
+    <div ng-messages="myForm.nome.$error" ng-show="myForm.nome.$touched">
+      <div ng-message="required">Nome é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+    <md-input-container flex="100">
+    <label>Cidade</label>
+    <input name="cidade" id="cidade" ng-model="unidadeDeSaude.cidade" ng-required="true">
+    <div ng-messages="myForm.cidade.$error" ng-show="myForm.cidade.$touched">
+      <div ng-message="required">Cidade é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+     <md-input-container flex="100">
+    <label>Bairro</label>
+    <input name="bairro" id="bairro" ng-model="unidadeDeSaude.bairro" ng-required="true">
+    <div ng-messages="myForm.bairro.$error" ng-show="myForm.bairro.$touched">
+      <div ng-message="required">Bairro é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+   <md-input-container flex="100">
+    <label>Logradouro</label>
+    <input name="logradouro" id="logradouro" ng-model="unidadeDeSaude.logradouro" ng-required="true">
+    <div ng-messages="myForm.logradouro.$error" ng-show="myForm.logradouro.$touched">
+      <div ng-message="required">Logradouro é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+     <md-input-container flex="100">
+    <label>Estado</label>
+    <input name="estado" id="estado" ng-model="unidadeDeSaude.estado" ng-required="true">
+    <div ng-messages="myForm.estado.$error" ng-show="myForm.estado.$touched">
+      <div ng-message="required">Estado é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+     <md-input-container flex="100">
+    <label>Longitude</label>
+    <input name="longitude" id="longitude" ng-model="unidadeDeSaude.longitude" ng-required="true">
+    <div ng-messages="myForm.longitude.$error" ng-show="myForm.longitude.$touched">
+      <div ng-message="required">Longitude é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+   <md-input-container flex="100">
+    <label>Latitude</label>
+    <input name="latitude" id="latitude" ng-model="unidadeDeSaude.latitude" ng-required="true">
+    <div ng-messages="myForm.latitude.$error" ng-show="myForm.latitude.$touched">
+      <div ng-message="required">Latitude é obrigatório.</div>
+    </div>
+  </md-input-container>
+  
+    
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+   
+    <span flex></span>
+   
+    <md-button type="button" ng-click="cancel()" class="md-primary">
+      Cancelar
+    </md-button>
+      <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+  </div>
+</form>
+</md-dialog>
+
+
+
+

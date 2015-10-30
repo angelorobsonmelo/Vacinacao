@@ -1,0 +1,31 @@
+<form ng-submit="redefinirSenha()" name="myForm">
+
+    <md-input-container flex="100">
+        <label>Email</label>
+        <input name="email" id="email" type="email" ng-model="usuario.email" ng-required="true" readonly
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+        <div ng-messages="myForm.email.$error" ng-show="myForm.email.$touched">
+            <div ng-message="required">Campaign Name is required.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container flex="100">
+        <label>Senha</label>
+        <input name="senha" id="senha" type="password" ng-model="usuario.senha" ng-required="true">
+
+        <div ng-messages="myForm.senha.$error" ng-show="myForm.senha.$touched">
+            <div ng-message="required">Campaign Name is required.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container flex="100">
+        <label>Confirmar Senha</label>
+        <input name="confirmar" id="confirmar" type="password" ng-model="obj.con" ng-required="true">
+
+        <div ng-messages="myForm.confirmar.$error" ng-show="myForm.confirmar.$touched">
+            <div ng-message="required">Campaign Name is required.</div>
+        </div>
+    </md-input-container>
+    <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+</form>

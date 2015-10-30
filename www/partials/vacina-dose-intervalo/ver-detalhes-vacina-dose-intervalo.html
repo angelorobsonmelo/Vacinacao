@@ -1,0 +1,56 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Salvar Vacina Dose Intervalo</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" type="button" ng-click="cancel()">
+                <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="autoScroll">
+
+        <h2 class="md-title text-center">{{vacina.nome}}</h2>
+        <md-card
+                ng-repeat="vacinaDoseIntervalo in vacinasDosesIntervalos | orderBy:'-vacinaDoseIntervalo.doseVO.descricao'">
+
+            <md-card-content>
+                <h2 class="md-title">Dose</h2>
+
+                <p>
+                    {{vacinaDoseIntervalo.doseVO.descricao}}
+
+                </p>
+
+                <h2 class="md-title">Intervalo</h2>
+
+                <p>
+
+
+                </p>
+
+                <p>
+                    {{vacinaDoseIntervalo.intervaloVO.dias}} Dias
+
+                </p>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center">
+                <md-button class="md-raised md-primary" type="button" ng-click="editar(vacinaDoseIntervalo)">Editar</md-button>
+                <md-button class="md-raised md-primary" type="button" ng-click="remover(vacinaDoseIntervalo)">Remover</md-button>
+
+
+            </div>
+
+
+        </md-card>
+        <md-button class="md-raised md-primary" type="button" ng-click="cancel()">Sair</md-button>
+
+    </md-dialog-content>
+
+</md-dialog>
+
+
+
+

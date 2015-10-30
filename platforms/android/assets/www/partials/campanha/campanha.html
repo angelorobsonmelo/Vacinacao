@@ -1,0 +1,217 @@
+
+
+<div>
+  <md-content class="md-padding">
+    <md-tabs md-dynamic-height md-border-bottom>
+    
+    
+      <md-tab label="Campanhas">
+        <md-content class="md-padding" ng-controller="CampanhaCtrl">
+
+<md-button class="md-raised md-primary" type="button" ng-click="adicionarCampanha()">Adicionar Campanha</md-button>
+
+ <md-card  ng-repeat="campanha in campanhas | orderBy:'-sequencial'">
+      
+      <md-card-content>
+        <h2 class="md-title">{{campanha.titulo}}</h2>
+        <p>
+         {{campanha.descricao}}
+        </p>
+      </md-card-content>
+      <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" type="button" ng-click="editar(campanha)">Editar</md-button>
+         <md-button class="md-raised md-primary" type="button" ng-click="remover(campanha)">Remover</md-button>
+      </div>
+    </md-card>
+    <br/>
+     
+        </md-content>
+      
+      
+      </md-tab>
+      
+      
+      
+      
+      
+      <md-tab label="Unidades de Saúde">
+        <md-content class="md-padding" ng-controller="UnidadeDeSaudeCtrl">
+        
+      
+      <md-button class="md-raised md-primary" type="button" ng-click="adicionarUnidadeDeSaude()">Adicionar Unidade de Saúde</md-button>
+   
+    <md-card  ng-repeat="unidadeDesaude in unidadesDeSaude | orderBy:'-sequencial'">
+      
+      <md-card-content>
+        <h2 class="md-title">Unidade de Saúde {{unidadeDesaude.nome}}</h2>
+        <p>
+         <h5>Cidade: {{unidadeDesaude.cidade}}</h5>
+          <h5>Bairro: {{unidadeDesaude.bairro}}</h5>
+           <h5>Logradouro: {{unidadeDesaude.logradouro}}</h5>
+           <h5>Estado: {{unidadeDesaude.estado}}</h5> 
+           <map center="{{unidadeDesaude.latitude}}, {{unidadeDesaude.longitude}}" zoom="13">
+    <marker position="{{unidadeDesaude.latitude}}, {{unidadeDesaude.longitude}}" ></marker>
+  </map>
+            
+        </p>
+      </md-card-content>
+      <div class="md-actions" layout="row" layout-align="end center">
+         <md-button class="md-raised md-primary" type="button" ng-click="editar(unidadeDesaude)">Editar</md-button>
+         <md-button class="md-raised md-primary" type="button" ng-click="remover(unidadeDesaude)">Remover</md-button>
+      </div>
+    
+    </md-card>
+     
+    <br/>
+    
+    
+      
+        </md-content>
+      </md-tab>
+
+
+
+
+        <md-tab label="Vacinas">
+            <md-content class="md-padding" ng-controller="VacinaCtrl">
+
+
+                <md-button class="md-raised md-primary" type="button" ng-click="adicionarVacina()">Adicionar Vacina</md-button>
+
+                <md-card  ng-repeat="vacina in vacinas | orderBy:'-sequencial'">
+
+                    <md-card-content>
+                        <h2 class="md-title">{{vacina.nome}}</h2>
+                        <p>
+                        {{vacina.descricao}}
+
+
+
+                        </p>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" type="button" ng-click="editar(vacina)">Editar</md-button>
+                        <md-button class="md-raised md-primary" type="button" ng-click="remover(vacina)">Remover</md-button>
+                    </div>
+
+                </md-card>
+
+                <br/>
+
+
+
+            </md-content>
+        </md-tab>
+
+
+        <md-tab label="Doses">
+            <md-content class="md-padding" ng-controller="DoseCtrl">
+
+
+                <md-button class="md-raised md-primary" type="button" ng-click="adicionarDose()">Adicionar Dose</md-button>
+
+                <md-card  ng-repeat="dose in doses | orderBy:'-sequencial'">
+
+                    <md-card-content>
+                        <h2 class="md-title">Dose</h2>
+                        <p>
+                            {{dose.descricao}}
+
+
+
+                        </p>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" type="button" ng-click="editar(dose)">Editar</md-button>
+                        <md-button class="md-raised md-primary" type="button" ng-click="remover(dose)">Remover</md-button>
+                    </div>
+
+                </md-card>
+
+                <br/>
+
+
+
+            </md-content>
+        </md-tab>
+
+
+        <md-tab label="Intervalo">
+            <md-content class="md-padding" ng-controller="IntervaloCtrl">
+
+
+                <md-button class="md-raised md-primary" type="button" ng-click="adicionarIntervalo()">Adicionar Intervalo</md-button>
+
+                <md-card  ng-repeat="intervalo in intervalos | orderBy:'-sequencial'">
+
+                    <md-card-content>
+                        <h2 class="md-title">Intervalo</h2>
+                        <p>
+                            {{intervalo.tempoIntervalo}}
+
+                        </p>
+
+                        <p>
+                            {{intervalo.dias}} dias
+
+
+                        </p>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" type="button" ng-click="editar(intervalo)">Editar</md-button>
+                        <md-button class="md-raised md-primary" type="button" ng-click="remover(intervalo)">Remover</md-button>
+                    </div>
+
+                </md-card>
+
+                <br/>
+
+
+
+            </md-content>
+        </md-tab>
+
+
+
+        <md-tab label="Vacina Dose Intervalo">
+            <md-content class="md-padding" ng-controller="VacinaDoseIntervaloCtrl">
+
+
+                <md-button class="md-raised md-primary" type="button" ng-click="adicionarVacinaDoseIntervalo()">Adicionar Vacina Dose Intervalo</md-button>
+
+                <md-card  ng-repeat="vacinacao in vacinas | orderBy:'nome'">
+
+                    <md-card-content>
+                        <h2 class="md-title">{{vacinacao.nome}}</h2>
+                        <p>
+                            {{vacinacao.descricao}}
+
+
+
+                        </p>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" type="button" ng-click="verDosesEIntervalos(vacinacao)">ver detalhes</md-button>
+
+                    </div>
+
+                </md-card>
+
+                <br/>
+
+
+
+            </md-content>
+        </md-tab>
+
+     
+    </md-tabs>
+    
+    
+    
+    
+  </md-content>
+  
+  
+  
+</div>

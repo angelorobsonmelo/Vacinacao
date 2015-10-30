@@ -1,0 +1,86 @@
+
+
+    <form ng-submit="inserirUsuario()" name="myForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Cadastro de Usuário</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" type="button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="autoScroll">
+
+
+            <md-input-container flex="100">
+                <label>Name</label>
+                <input name="name" id="name" ng-model="usuario.nome" ng-required="true">
+                <div ng-messages="myForm.name.$error" ng-show="myForm.name.$touched">
+                    <div ng-message="required">Campaign Name is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container flex="100">
+                <label>Sobrenome</label>
+                <input name="sobrenome" id="sobrenome" ng-model="usuario.sobrenome" ng-required="true">
+                <div ng-messages="myForm.sobrenome.$error" ng-show="myForm.sobrenome.$touched">
+                    <div ng-message="required">Campaign Name is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container flex="100">
+
+                <label>Data de Nascimento</label>
+                <input name="dataNascimento" id="dataNascimento" type="date" ng-model="usuario.dataNascimento" md-placeholder="Enter date" />
+                <div ng-messages="myForm.dataNascimento.$error" ng-show="myForm.dataNascimento.$touched">
+                    <div ng-message="required">Data de Nascimento Obrigatória</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100">
+                <label>Senha</label>
+                <input name="senha" id="senha" type="password" ng-model="usuario.senha" ng-required="true">
+                <div ng-messages="myForm.senha.$error" ng-show="myForm.senha.$touched">
+                    <div ng-message="required">Campaign Name is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container flex="100">
+                <label>Confirmar Senha</label>
+                <input name="confirmar" id="confirmar" type="password" ng-model="obj.con" ng-required="true">
+                <div ng-messages="myForm.confirmar.$error" ng-show="myForm.confirmar.$touched">
+                    <div ng-message="required">Campaign Name is required.</div>
+                </div>
+            </md-input-container>
+
+
+
+            <md-input-container flex="100">
+                <md-select name="myselect" id="myselect" placeholder="Gênero" ng-model="usuario.genero" ng-required="true">
+                    <md-option ng-repeat="genero in genders" ng-value="genero">{{genero}}</md-option>
+                </md-select>
+                <div ng-messages="myForm.myselect.$error" ng-show="myForm.myselect.$touched">
+                    <div ng-message="required">Campo obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+
+
+        <div class="md-actions" layout="row">
+
+            <span flex></span>
+
+            <md-button type="button" ng-click="cancel()" class="md-primary">
+                Cancelar
+            </md-button>
+            <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+        </div>
+    </form>
+
+
+
+
+

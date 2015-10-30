@@ -1,0 +1,40 @@
+<div>
+
+	<table border="1">
+		<thead>
+			<tr>
+				
+				<th>Unidade De Saúde</th>
+				<th>Logradouro</th>
+				<th>Cidade</th>
+				<th>Bairro</th>
+				<th>Estado</th>
+				<th>Distância usando automóvel</th>
+				<th>Duração</th>
+				<th>Ver no Mapa</th>
+				<th>Traçar rota</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				
+				<td>{{ unidadeDeSaudeDetalhes.nome }}</td>
+				<td>{{ unidadeDeSaudeDetalhes.logradouro }}</td>
+				<td>{{ unidadeDeSaudeDetalhes.cidade }}</td>
+				<td>{{ unidadeDeSaudeDetalhes.bairro }}</td>
+				<td>{{ unidadeDeSaudeDetalhes.estado }}</td>
+				<td>{{ unidadeDeSaudeDetalhes.distancia }}</td>
+				<td>{{ unidadeDeSaudeDetalhes.duracao }}</td>
+				<td><button type="button" ng-click="verNoMapa(unidadeDeSaudeDetalhes)">Ver no Mapa</button></td>
+				<td><button type="button" ng-click="tracarRota(unidadeDeSaudeDetalhes)">Traçar Rota</button></td>
+
+			</tr>
+
+		</tbody>
+
+	</table>
+
+
+
+</div>

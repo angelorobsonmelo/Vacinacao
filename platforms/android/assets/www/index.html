@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+
+    <!-- depencia do angular-material -->
+    <link rel="stylesheet"
+          href="bower_components/angular-material/angular-material.min.css"
+          media="all"/>
+
+    <link rel="stylesheet"
+          href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="assets/css/font.css">
+    <link rel="stylesheet"
+          href="assets/css/angular-aside.css">
+    <link rel="stylesheet" href="bower_components/angular-hamburger-toggle/dist/angular-hamburger-toggle.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css" media="all"/>
+
+    <title>Hello World</title>
+</head>
+<body>
+
+
+<!-- Add your site or application content here -->
+<div class="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <hamburger-toggle state="tgState" class="hamburger-toggle" ng-hide="esconderHeader"></hamburger-toggle>
+                <a class="navbar-brand" ng-bind="titulo">
+
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidenav" ng-class="{open: tgState}">
+    <ul class="nav nav-pills nav-stacked">
+
+        <li role="presentation" ng-class="{active: activetab == '/dados-pessoais'}"><a
+                ng-href="#/dados-pessoais" ng-click="mostrarMenuEscolhido()">Dados Pessoais</a>
+        </li>
+
+        <li role="presentation" ng-class="{active: activetab == '/lista-de-unidades-de-saude'}"><a
+                ng-href="#/lista-de-unidades-de-saude" ng-click="mostrarMenuEscolhido()">Lista de Unidade de Saúde</a>
+        </li>
+        <li role="presentation" ng-class="{active: activetab == '/lista-de-unidades-de-saude-mapa'}"><a
+                ng-href="#/lista-de-unidades-de-saude-mapa" ng-click="mostrarMenuEscolhido()">Lista de Unidade De Saúde
+            no Mapa</a></li>
+
+        <li role="presentation" ng-class="{active: activetab == '/manual-do-viajante'}"><a
+                ng-href="#/manual-do-viajante" ng-click="mostrarMenuEscolhido()">Manual do Viajante</a></li>
+
+        <li role="presentation" ng-class="{active: activetab == '/vacinas-fase-da-vida'}"><a
+                ng-href="#/vacinas-fase-da-vida" ng-click="mostrarMenuEscolhido()">Fases da Vida</a></li>
+
+        <li role="presentation" ng-class="{active: activetab == '/visualizar-campanha'}"><a
+                ng-href="#/visualizar-campanha" ng-click="mostrarMenuEscolhido()">Campanhas</a></li>
+
+
+        <li role="presentation"><a href="#/">Sair</a></li>
+    </ul>
+</div>
+
+<div class="content" ng-class="{'sidenav-open': tgState}">
+
+    <div ng-view></div>
+
+
+</div>
+
+
+<div class="clearfix"></div>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="PushNotification.js"></script>
+<script src="partials/jquery_1.5.2.min.js"></script>
+
+<!-- Angular Material Dependencies -->
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script
+        src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script
+        src="bower_components/angular-hamburger-toggle/dist/angular-hamburger-toggle.min.js"></script>
+<!-- Google maps api -->
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLNaNl7nZiLqFSgf4kXJdNjb3OOOJkKE">
+</script>
+<script src="assets/js/ng-map.js"></script>
+
+
+<script src="app.js"></script>
+<script src="partials/home/js/HomeCtrl.js"></script>
+<!-- meus controllers e factories -->
+<script src="partials/usuario/js/usuarioCtrl.js"></script>
+<script src="partials/usuario/js/usuarioFactory.js"></script>
+
+<script
+        src="partials/unidade-de-saude-lista/js/ListaUnidadeDeSaudeCtrl.js"></script>
+<script
+        src="partials/unidade-de-saude-lista/js/ListaUnidadeDeSaudeFactory.js"></script>
+
+<script
+        src="partials/unidade-de-saude-lista-mapa/js/ListaUnidadeDeSaudeMapaCtrl.js"></script>
+<script
+        src="partials/unidade-de-saude-lista-mapa/js/ListaUnidadeDeSaudeMapaFactory.js"></script>
+
+<script
+        src="partials/detalhes-unidade-de-saude/js/DetalhesUnidadeDeSaudeCtrl.js"></script>
+<script
+        src="partials/detalhes-unidade-de-saude/js/DetalhesUnidadeDeSaudeFactory.js"></script>
+
+<script
+        src="partials/ver-unidade-de-saude-no-mapa/js/VerUnidadeDeSaudeNoMapaCtrl.js"></script>
+<script
+        src="partials/ver-unidade-de-saude-no-mapa/js/VerUnidadeDeSaudeNoMapaFactory.js"></script>
+
+<script src="partials/rota/js/RotaCtrl.js"></script>
+<script src="partials/rota/js/RotaFactory.js"></script>
+
+<script src="partials/simple-map/js/SimpleMapCtrl.js"></script>
+<script src="partials/simple-map/js/SimpleMapFactory.js"></script>
+
+<script src="partials/login/js/LoginCtrl.js"></script>
+<script src="partials/login/js/LoginFactory.js"></script>
+
+<script src="partials/cad-usuario/js/InserirUsuarioFactory.js"></script>
+
+<script src="partials/campanha/js/CampanhaCtrl.js"></script>
+<script src="partials/campanha/js/CampanhaFactory.js"></script>
+
+<script src="partials/unidade-de-saude/js/UnidadeDeSaudeCtrl.js"></script>
+<script src="partials/unidade-de-saude/js/UniadeDeSaudeFactory.js"></script>
+
+<script src="partials/mensagem_recebida/js/MensagemRecebidaCtrl.js"></script>
+
+<script src="partials/manual-do-viajante/js/ManualDoViajanteCtrl.js"></script>
+<script src="partials/manual-do-viajante/js/ManualDoViajanteFactory.js"></script>
+
+<script src="partials/vacina-fase-da-vida/js/VacinasFaseDaVidaCtrl.js"></script>
+<script src="partials/vacina-fase-da-vida/js/VacinasFaseDaVidaFactory.js"></script>
+
+<script src="partials/dados-pessoais/js/DadosPessoaisCtrl.js"></script>
+<script src="partials/dados-pessoais/js/DadosPessoaisFactory.js"></script>
+
+<script src="partials/redefinir-senha/js/RedefinirSenhaCtrl.js"></script>
+<script src="partials/redefinir-senha/js/RedefinirSenhaFactory.js"></script>
+
+<script src="partials/esqueceu-senha/js/EsqueceuSenhaCtrl.js"></script>
+<script src="partials/esqueceu-senha/js/EsqueceuSenhaFactory.js"></script>
+
+<script src="partials/visualizar-campanha/VisualizarCampanhaCtrl.js"></script>
+
+<script src="partials/cad-vacina-administrador/js/VacinaCtrl.js"></script>
+<script src="partials/cad-vacina-administrador/js/VacinaFactory.js"></script>
+
+<script src="partials/dose/js/DoseCtrl.js"></script>
+<script src="partials/dose/js/DoseFactory.js"></script>
+
+<script src="partials/intervalo/js/IntervaloCtrl.js"></script>
+<script src="partials/intervalo/js/IntervaloFactory.js"></script>
+
+<script src="partials/vacina-dose-intervalo/js/VacinaDoseIntervaloCtrl.js"></script>
+<script src="partials/vacina-dose-intervalo/js/VacinaDoseIntervaloFactory.js"></script>
+
+<script src="partials/vacina-dose-intervalo/js/VerDetalhesVacinasDosesIntervalo.js"></script>
+
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+
+    var pushNotification;
+
+    function onDeviceReady() {
+        $("#app-status-ul").append('<li>Device ok. Evento ativado.</li>');
+
+        document.addEventListener("backbutton", function (e) {
+            $("#app-status-ul").append('<li>backbutton clicado.</li>');
+
+            if ($("#home").length > 0) {
+                // call this to get a new token each time. don't call it to reuse existing token.
+                //pushNotification.unregister(successHandler, errorHandler);
+                e.preventDefault();
+                navigator.app.exitApp();
+            }
+            else {
+                navigator.app.backHistory();
+            }
+        }, false);
+
+        try {
+            pushNotification = window.plugins.pushNotification;
+            $("#app-status-ul").append('<li>Registrando o ' + device.platform + '</li>');
+            if (device.platform == 'android' || device.platform == 'Android' ||
+                    device.platform == 'amazon-fireos') {
+                pushNotification.register(successHandler, errorHandler, {
+                    "senderID": "218139740276",
+                    "ecb": "onNotification"
+                });		// required!
+            } else {
+                pushNotification.register(tokenHandler, errorHandler, {
+                    "badge": "true",
+                    "sound": "true",
+                    "alert": "true",
+                    "ecb": "onNotificationAPN"
+                });	// required!
+            }
+        }
+        catch (err) {
+            txt = "Um erro ocorreu.\n\n";
+            txt += "Descri��o do erro: " + err.message + "\n\n";
+            alert(txt);
+        }
+    }
+
+    // handle APNS notifications for iOS
+    function onNotificationAPN(e) {
+        if (e.alert) {
+            $("#app-status-ul").append('<li>push-notifica��o: ' + e.alert + '</li>');
+            // showing an alert also requires the org.apache.cordova.dialogs plugin
+            navigator.notification.alert(e.alert);
+
+        }
+
+        if (e.sound) {
+            // playing a sound also requires the org.apache.cordova.media plugin
+            var snd = new Media(e.sound);
+            snd.play();
+        }
+
+        if (e.badge) {
+            pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
+
+
+        }
+    }
+
+    // handle GCM notifications for Android
+    function onNotification(e) {
+        $("#app-status-ul").append('<li>EVENTO -> RECEBIDO:' + e.event + '</li>');
+
+        switch (e.event) {
+            case 'registered':
+                if (e.regid.length > 0) {
+                    $("#app-status-ul").append('<li>REGISTRANDO -> REGID: \n\n' + e.regid + "\n\n</li>");
+                    // Your GCM push server needs to know the regID before it can push to this device
+                    // here is where you might want to send it the regID for later use.
+
+                    localStorage.setItem("regID", e.regid);
+
+                    //alert(e.redid);
+                }
+                break;
+
+            case 'message':
+                // if this flag is set, this notification happened while we were in the foreground.
+                // you might want to play a sound to get the user's attention, throw up a dialog, etc.
+                if (e.foreground) {
+
+
+                    $("#app-status-ul").append('<li>--NOTIFICA��ES IN LINE--' + '</li>');
+
+                    // on Android soundname is outside the payload.
+                    // On Amazon FireOS all custom attributes are contained within payload
+                    var soundfile = e.soundname || e.payload.sound;
+                    // if the notification contains a soundname, play it.
+                    // playing a sound also requires the org.apache.cordova.media plugin
+                    var my_media = new Media("/android_asset/www/" + soundfile);
+
+                    my_media.play();
+                }
+                else {	// otherwise we were launched because the user touched a notification in the notification tray.
+                    if (e.coldstart)
+                        $("#app-status-ul").append('<li>--NOTIFICA��ES RECEBIDAS--' + '</li>');
+                    else
+                        $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+                }
+
+
+                console.log(e.payload);
+
+                window.location = "file:///android_asset/www/index.html#/mensagem-recebida/" + e.payload.message;
+
+                //$location.path('mensagem-recebida/' + e.payload.message);
+
+                $("#app-status-ul").append('<li>MENSAGEM -> MSG: ' + e.payload.message + '</li>');
+                //android only
+                $("#app-status-ul").append('<li>MENSAGEM -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+                //amazon-fireos only
+                $("#app-status-ul").append('<li>MENSAGEM -> TIMESTAMP: ' + e.payload.timeStamp + '</li>');
+                break;
+
+            case 'error':
+                $("#app-status-ul").append('<li>ERRO -> MSG:' + e.msg + '</li>');
+                break;
+
+            default:
+                $("#app-status-ul").append('<li>EVENTO -> Unknown, an event was received and we do not know what it is</li>');
+                break;
+        }
+    }
+
+    function tokenHandler(result) {
+        $("#app-status-ul").append('<li>token: ' + result + '</li>');
+        // Your iOS push server needs to know the token before it can push to this device
+        // here is where you might want to send it the token for later use.
+    }
+
+    function successHandler(result) {
+        $("#app-status-ul").append('<li>sucesso:' + result + '</li>');
+    }
+
+    function errorHandler(error) {
+        $("#app-status-ul").append('<li>erro:' + error + '</li>');
+    }
+
+    document.addEventListener('deviceready', onDeviceReady, true);
+
+</script>
+
+</body>
+</html>
