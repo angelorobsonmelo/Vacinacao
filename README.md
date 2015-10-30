@@ -1,2 +1,2 @@
 # Vacinacao
-Projeto feito utilizando o framework Angular JS
+Projeto feito utilizando o framework Angular JS e Phonegap
