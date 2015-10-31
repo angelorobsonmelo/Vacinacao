@@ -60,11 +60,15 @@
         <li role="presentation" ng-class="{active: activetab == '/manual-do-viajante'}"><a
                 ng-href="#/manual-do-viajante" ng-click="mostrarMenuEscolhido()">Manual do Viajante</a></li>
 
-        <li role="presentation" ng-class=cd "{active: activetab == '/vacinas-fase-da-vida'}"><a
+        <li role="presentation" ng-class="{active: activetab == '/vacinas-fase-da-vida'}"><a
                 ng-href="#/vacinas-fase-da-vida" ng-click="mostrarMenuEscolhido()">Fases da Vida</a></li>
 
         <li role="presentation" ng-class="{active: activetab == '/visualizar-campanha'}"><a
                 ng-href="#/visualizar-campanha" ng-click="mostrarMenuEscolhido()">Campanhas</a></li>
+
+
+        <li role="presentation" ng-class="{active: activetab == '/vacina-usuario'}"><a
+                ng-href="#/vacina-usuario" ng-click="mostrarMenuEscolhido()">Cartão de Vacina</a></li>
 
 
         <li role="presentation"><a href="#/">Sair</a></li>
@@ -102,6 +106,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLNaNl7nZiLqFSgf4kXJdNjb3OOOJkKE">
 </script>
 <script src="assets/js/ng-map.js"></script>
+
+<script src="bower_components/moment/moment.js"></script>
 
 
 <script src="app.js"></script>
@@ -179,6 +185,9 @@
 <script src="partials/vacina-dose-intervalo/js/VacinaDoseIntervaloFactory.js"></script>
 
 <script src="partials/vacina-dose-intervalo/js/VerDetalhesVacinasDosesIntervalo.js"></script>
+
+<script src="partials/vacina-usuario/js/VacinaUsuarioCtrl.js"></script>
+<script src="partials/vacina-usuario/js/VacinaUsuarioFactory.js"></script>
 
 
 <script type="text/javascript" src="js/index.js"></script>

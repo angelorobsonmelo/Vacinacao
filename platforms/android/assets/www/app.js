@@ -59,6 +59,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'VisualizarCampanhaCtrl',
             templateUrl: 'partials/visualizar-campanha/visualizar-campanha.html'
         })
+        .when('/vacina-usuario', {
+            controller: 'VacinaUsuarioCtrl',
+            templateUrl: 'partials/vacina-usuario/vacina-usuario.html'
+        })
 
         .otherwise('/');
 }]);

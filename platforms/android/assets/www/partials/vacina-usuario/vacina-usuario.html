@@ -1,0 +1,29 @@
+<md-content class="md-padding" >
+
+    <md-button class="md-raised md-primary" type="button" ng-click="adicionarVacinaUsuario()">Adicionar Vacina</md-button>
+    <md-card  ng-repeat="vacinaUsuario in vacinasUsuario | orderBy:'-sequencial'">
+
+        <md-card-content>
+            <h2 class="md-title">{{vacinaUsuario.vacinaVO.nome}}</h2>
+
+            <h2 class="md-title">Local: {{vacinaUsuario.local}}</h2>
+
+            <h2 class="md-title">data Vacinação: {{vacinaUsuario.dataVacinacaoFormatadaBasica}}</h2>
+
+            <h2 class="md-title">Lote: {{vacinaUsuario.lote}}</h2>
+
+
+
+        </md-card-content>
+
+
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" type="button" ng-click="editar(vacinaUsuario)">Editar</md-button>
+            <md-button class="md-raised md-primary" type="button" ng-click="remover(vacinaUsuario)">Remover</md-button>
+        </div>
+
+    </md-card>
+    <br/>
+
+</md-content>

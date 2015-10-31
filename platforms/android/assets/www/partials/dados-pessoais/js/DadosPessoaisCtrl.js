@@ -23,9 +23,12 @@
 
         var usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-        var dataNascimentoConvertida = new Date(usuarioLogado.dataNascimento);
 
-        usuarioLogado.dataNascimento = dataNascimentoConvertida;
+        var myDate = new Date(usuarioLogado.dataNascimento);
+
+        myDate = new Date(myDate.getUTCFullYear(), myDate.getUTCMonth(), myDate.getUTCDate());
+
+        usuarioLogado.dataNascimento = myDate;
 
 
         $scope.usuario = usuarioLogado;
@@ -50,16 +53,14 @@
                     );
 
 
-
-
-                    LoginFactory.atualizarDados($scope.usuario).then(function(data) {
+                    LoginFactory.atualizarDados($scope.usuario).then(function (data) {
 
 
                         localStorage.setItem('usuarioLogado', angular.toJson(data));
 
-                       // var dataNascimentoConvertida = new Date(data.dataNascimento);
+                        // var dataNascimentoConvertida = new Date(data.dataNascimento);
 
-                     //   data.dataNascimento = dataNascimentoConvertida;
+                        //   data.dataNascimento = dataNascimentoConvertida;
 
                         $scope.usuario = data;
 

@@ -88,13 +88,11 @@
 
             vacinaUsuario.dataVacinacao = myDate;
 
-
-            console.log(vacinaUsuario.dataVacinacao);
-
+            console.log(vacinaUsuario);
 
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: 'partials/vacina-usuario/modals/salvar-vacina-usuario.html',
+                templateUrl: 'partials/vacina-usuario/modals/editar-vacina-usuario.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 resolve: {
@@ -151,10 +149,20 @@
 
             $scope.salvarVacinaUsuario = function () {
 
-
                 VacinaUsuarioFactory.salvarVacinaUsuario($scope.vacinaUsuario).then(function (data) {
 
                     if (data[0].resultado == 'OK') {
+
+
+                        console.log($scope.dose);
+
+                        console.log($scope.vacinaUsuario);
+
+
+                        var data = moment($scope.vacinaUsuario.dataVacinacao).add($scope.dose.intervaloVO.dias, 'days').format('YYYY-MM-DD');
+
+                        console.log(data);
+
 
                         $mdDialog.show(
                             $mdDialog.alert()
