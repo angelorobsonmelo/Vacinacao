@@ -9,10 +9,10 @@
 
     'use strict';
 
-    app.factory('VacinaUsuarioFactory', ['$http', '$q', function ($http, $q) {
+    app.factory('VacinaUsuarioFactory', ['$http', '$q', '$mdDialog', function ($http, $q, $mdDialog) {
 
 
-        function listarTodasPorSequencialUsuario(){
+        function listarTodasPorSequencialUsuario() {
 
             var retorno = $q.defer();
 
@@ -23,7 +23,7 @@
 
                     retorno.resolve(resposta);
                 })
-                .error(function(resposta) {
+                .error(function (resposta) {
 
                     console.log(resposta);
                 })
@@ -33,6 +33,11 @@
 
         function salvarVacinaUsuario(vacinaUsuario) {
 
+            var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+
+            vacinaUsuario.usuarioVO = usuario;
+
             var retorno = $q.defer();
 
             $http.post('http://192.168.0.14:8080/Vacinacao/rest/vacina_usuario/salvar', vacinaUsuario)
@@ -40,7 +45,7 @@
 
                     retorno.resolve(resposta);
                 })
-                .error(function(resposta) {
+                .error(function (resposta) {
 
                     console.log(resposta);
                 })
@@ -61,21 +66,19 @@
                 .targetEvent(ev)
                 .ok('Sim')
                 .cancel('Não');
-            $mdDialog.show(confirm).then(function() {
+            $mdDialog.show(confirm).then(function () {
 
-                $http.delete('http://192.168.0.14:8080/Vacinacao/rest/vacina_usuario/remover/'+ vacinaUsuario.sequencial)
+                $http.delete('http://192.168.0.14:8080/Vacinacao/rest/vacina_usuario/remover/' + vacinaUsuario.sequencial)
                     .success(function (resposta) {
 
                         retorno.resolve(resposta);
                     })
-                    .error(function(resposta) {
+                    .error(function (resposta) {
 
                         console.log(resposta);
                     })
 
             });
-
-
 
 
             return retorno.promise;

@@ -9,7 +9,7 @@
 
         $rootScope.activetab = $location.path();
 
-        $rootScope.mostrarMenuEscolhido = function() {
+        $rootScope.mostrarMenuEscolhido = function () {
 
             $rootScope.tgState = false;
 
@@ -22,9 +22,10 @@
 
         function listarTodasPorSequencialUsuario() {
 
-            VacinaUsuarioFactory.listarTodasPorSequencialUsuario().then(function(resposta) {
+            VacinaUsuarioFactory.listarTodasPorSequencialUsuario().then(function (resposta) {
 
                 var vacinasUsuarioCopy = angular.copy(resposta);
+
 
                 $scope.vacinasUsuario = vacinasUsuarioCopy;
 
@@ -35,7 +36,7 @@
         }
 
 
-        $scope.adicionarVacinaUsuario = function(ev) {
+        $scope.adicionarVacinaUsuario = function (ev) {
 
             var vacinaUsuario = '';
 
@@ -52,15 +53,14 @@
             })
 
 
-
         }
 
 
-        $scope.remover = function(vacinaUsuario) {
+        $scope.remover = function (vacinaUsuario) {
 
-            VacinaUsuarioFactory.remover(vacinaUsuario).then(function(resposta) {
+            VacinaUsuarioFactory.remover(vacinaUsuario).then(function (resposta) {
 
-                if(resposta[0].resultado == 'OK'){
+                if (resposta[0].resultado == 'OK') {
 
                     $mdDialog.show(
                         $mdDialog.alert()
@@ -69,7 +69,6 @@
                             .content('Excluído com Sucesso!')
                             .ariaLabel('Alert Dialog Demo')
                             .ok('OK')
-
                     );
 
                     listarTodasPorSequencialUsuario();
@@ -80,7 +79,18 @@
         }
 
 
-        $scope.editar = function(vacinaUsuario, ev) {
+        $scope.editar = function (vacinaUsuario, ev) {
+
+
+            var myDate = new Date(vacinaUsuario.dataVacinacao);
+
+            myDate = new Date(myDate.getUTCFullYear(), myDate.getUTCMonth(), myDate.getUTCDate());
+
+            vacinaUsuario.dataVacinacao = myDate;
+
+
+            console.log(vacinaUsuario.dataVacinacao);
+
 
             $mdDialog.show({
                 controller: DialogController,
@@ -96,16 +106,55 @@
 
         }
 
-        function DialogController($scope, $mdDialog, $location, VacinaUsuarioFactory, vacinaUsuario) {
+        function DialogController($scope, $mdDialog, $location, VacinaUsuarioFactory, vacinaUsuario, VacinaFactory, VacinaDoseIntervaloFactory) {
 
             $scope.vacinaUsuario = vacinaUsuario;
 
-            $scope.salvarVacinaUsuario = function() {
+
+            $scope.verDosesVacina = function () {
 
 
-                VacinaUsuarioFactory.salvarVacinaUsuario($scope.vacinaUsuario).then(function(data) {
+                carregarDosesPorSequencialVacina($scope.vacinaUsuario.vacinaVO);
 
-                    if(data[0].resultado == 'OK'){
+            }
+
+
+            function carregarDosesPorSequencialVacina(vacina) {
+
+                VacinaDoseIntervaloFactory.verTodasPorSequencialVacina(vacina).then(function (resposta) {
+
+
+                    var dosesCopy = angular.copy(resposta);
+
+                    $scope.doses = dosesCopy;
+
+
+                });
+
+
+            }
+
+
+            carregarVacinas();
+
+            function carregarVacinas() {
+
+
+                VacinaFactory.verTodas().then(function (resposta) {
+
+                    var vacinasCopy = angular.copy(resposta);
+
+                    $scope.vacinas = vacinasCopy;
+
+                });
+            }
+
+            $scope.salvarVacinaUsuario = function () {
+
+
+                VacinaUsuarioFactory.salvarVacinaUsuario($scope.vacinaUsuario).then(function (data) {
+
+                    if (data[0].resultado == 'OK') {
 
                         $mdDialog.show(
                             $mdDialog.alert()
@@ -114,7 +163,6 @@
                                 .content('Salvo com Sucesso!')
                                 .ariaLabel('Alert Dialog Demo')
                                 .ok('OK')
-
                         );
 
                         listarTodasPorSequencialUsuario();
@@ -124,22 +172,18 @@
                 });
 
 
-
             }
 
-            $scope.hide = function() {
+            $scope.hide = function () {
                 $mdDialog.hide();
             };
-            $scope.cancel = function() {
+            $scope.cancel = function () {
                 $mdDialog.cancel();
             };
-            $scope.answer = function(answer) {
+            $scope.answer = function (answer) {
                 $mdDialog.hide(answer);
             };
         }
-
-
-
 
 
     }]);
