@@ -1,0 +1,16 @@
+<md-content class="md-padding" >
+
+
+    <md-card  ng-repeat="vacinaUsuario in vacinasUsuario | orderBy:'-sequencial'">
+
+        <md-card-content>
+            <h2 class="md-title">{{vacinaUsuario.vacinaVO.nome}}</h2>
+            <p>
+                {{vacinaUsuario.vacinaVO.descricao}}
+            </p>
+        </md-card-content>
+
+    </md-card>
+    <br/>
+
+</md-content>

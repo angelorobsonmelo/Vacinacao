@@ -67,6 +67,10 @@
                 ng-href="#/visualizar-campanha" ng-click="mostrarMenuEscolhido()">Campanhas</a></li>
 
 
+        <li role="presentation" ng-class="{active: activetab == '/vacina-usuario'}"><a
+                ng-href="#/vacina-usuario" ng-click="mostrarMenuEscolhido()">Cartão de Vacina</a></li>
+
+
         <li role="presentation"><a href="#/">Sair</a></li>
     </ul>
 </div>
@@ -179,6 +183,9 @@
 <script src="partials/vacina-dose-intervalo/js/VacinaDoseIntervaloFactory.js"></script>
 
 <script src="partials/vacina-dose-intervalo/js/VerDetalhesVacinasDosesIntervalo.js"></script>
+
+<script src="partials/vacina-usuario/js/VacinaUsuarioCtrl.js"></script>
+<script src="partials/vacina-usuario/js/VacinaUsuarioFactory.js"></script>
 
 
 <script type="text/javascript" src="js/index.js"></script>
