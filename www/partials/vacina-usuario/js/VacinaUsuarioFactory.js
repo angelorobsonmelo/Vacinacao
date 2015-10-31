@@ -9,7 +9,7 @@
 
     'use strict';
 
-    app.factory('VacinaUsuarioFactory', ['$http', '$q', '$mdDialog', function ($http, $q, $mdDialog) {
+    app.factory('VacinaUsuarioFactory', ['$http', '$q', '$mdDialog', 'VacinaDoseIntervaloFactory', function ($http, $q, $mdDialog, VacinaDoseIntervaloFactory) {
 
 
         function listarTodasPorSequencialUsuario() {
@@ -31,7 +31,7 @@
 
         }
 
-        function salvarVacinaUsuario(vacinaUsuario) {
+        function salvarVacinaUsuario(vacinaUsuario, $scope) {
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
@@ -44,6 +44,10 @@
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
+
+                    agendarNotificacao($scope);
+
+
                 })
                 .error(function (resposta) {
 
@@ -82,6 +86,42 @@
 
 
             return retorno.promise;
+
+        }
+
+
+        function agendarNotificacao($scope) {
+
+
+            //  console.log($scope.dose);
+
+            //console.log($scope.vacinaUsuario);
+
+
+            VacinaDoseIntervaloFactory.verTodasPorSequencialVacina($scope.vacinaUsuario.vacinaVO).then(function (resposta) {
+
+
+                angular.forEach(resposta, function (value, index) {
+
+
+                    if ($scope.dose.doseVO.descricao != value.doseVO.descricao) {
+
+                        console.log(value.vacinaVO.nome);
+
+                        console.log(value.doseVO.descricao);
+
+                        var data = moment($scope.vacinaUsuario.dataVacinacao).add(value.intervaloVO.dias, 'days').format('YYYY-MM-DD');
+
+                        console.log(data);
+
+
+                    }
+
+                });
+
+
+            });
+
 
         }
 

@@ -149,19 +149,9 @@
 
             $scope.salvarVacinaUsuario = function () {
 
-                VacinaUsuarioFactory.salvarVacinaUsuario($scope.vacinaUsuario).then(function (data) {
+                VacinaUsuarioFactory.salvarVacinaUsuario($scope.vacinaUsuario, $scope).then(function (data) {
 
                     if (data[0].resultado == 'OK') {
-
-
-                        console.log($scope.dose);
-
-                        console.log($scope.vacinaUsuario);
-
-
-                        var data = moment($scope.vacinaUsuario.dataVacinacao).add($scope.dose.intervaloVO.dias, 'days').format('YYYY-MM-DD');
-
-                        console.log(data);
 
 
                         $mdDialog.show(
