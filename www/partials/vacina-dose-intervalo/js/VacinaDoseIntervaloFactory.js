@@ -16,7 +16,7 @@
 
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.14:8080/Vacinacao/rest/vacina_dose_intervalo/listarTodas')
+            $http.get('http://192.168.0.12:8080/Vacinacao/rest/vacina_dose_intervalo/listarTodas')
                 .success(function (resposta) {
 
 
@@ -39,7 +39,7 @@
 
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.14:8080/Vacinacao/rest/vacina_dose_intervalo/listarTodasPorSequencialVacina/' + vacina.sequencial)
+            $http.get('http://192.168.0.12:8080/Vacinacao/rest/vacina_dose_intervalo/listarTodasPorSequencialVacina/' + vacina.sequencial)
                 .success(function (resposta) {
 
 
@@ -74,7 +74,7 @@
 
             }
 
-            $http.post('http://192.168.0.14:8080/Vacinacao/rest/vacina_dose_intervalo/salvar', objetosToJson())
+            $http.post('http://192.168.0.12:8080/Vacinacao/rest/vacina_dose_intervalo/salvar', objetosToJson())
                 .success(function (resposta) {
 
 
@@ -115,7 +115,7 @@
 
             }
 
-            $http.post('http://192.168.0.14:8080/Vacinacao/rest/vacina_dose_intervalo/salvar', objetosToJson())
+            $http.post('http://192.168.0.12:8080/Vacinacao/rest/vacina_dose_intervalo/salvar', objetosToJson())
                 .success(function (resposta) {
 
 
@@ -151,7 +151,7 @@
                 .cancel('Não');
             $mdDialog.show(confirm).then(function () {
 
-                $http.delete('http://192.168.0.14:8080/Vacinacao/rest/vacina_dose_intervalo/remover/' + vacinaDoseIntervalo.sequencial)
+                $http.delete('http://192.168.0.12:8080/Vacinacao/rest/vacina_dose_intervalo/remover/' + vacinaDoseIntervalo.sequencial)
                     .success(function (resposta) {
 
                         retorno.resolve(resposta);

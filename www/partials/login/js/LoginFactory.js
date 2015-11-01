@@ -12,7 +12,7 @@
 
                 var retorno = $q.defer();
 
-                $http.get('http://192.168.0.14:8080/Vacinacao/rest/usuario/login/' + usuario.email + '/' + usuario.senha)
+                $http.get('http://192.168.0.12:8080/Vacinacao/rest/usuario/login/' + usuario.email + '/' + usuario.senha)
                     .success(function (data) {
 
                         if (data == '') {
@@ -57,7 +57,7 @@
 
                 var retorno = $q.defer();
 
-                $http.get('http://192.168.0.14:8080/Vacinacao/rest/usuario/login/' + usuario.email + '/' + usuario.senha)
+                $http.get('http://192.168.0.12:8080/Vacinacao/rest/usuario/login/' + usuario.email + '/' + usuario.senha)
                     .success(function (data) {
 
                         retorno.resolve(data);
@@ -77,7 +77,7 @@
             function pesquisarPorEmailPosLogin(usuario) {
 
 
-                $http.get('http://192.168.0.14:8080/Vacinacao/rest/usuario/pesquisarPorEmailPosLogin/' + usuario.email)
+                $http.get('http://192.168.0.12:8080/Vacinacao/rest/usuario/pesquisarPorEmailPosLogin/' + usuario.email)
                     .success(function (resposta) {
 
                         localStorage.setItem('usuarioLogado', angular.toJson(resposta));

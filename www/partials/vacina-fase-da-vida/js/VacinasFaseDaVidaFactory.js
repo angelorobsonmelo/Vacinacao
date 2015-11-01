@@ -17,7 +17,7 @@
 
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.14:8080/Vacinacao/rest/vacina_fase_da_vida/listarTodas/' + sequencialFaseDaVida)
+            $http.get('http://192.168.0.12:8080/Vacinacao/rest/vacina_fase_da_vida/listarTodas/' + sequencialFaseDaVida)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);

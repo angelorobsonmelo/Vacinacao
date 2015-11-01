@@ -15,7 +15,7 @@
         function redefinirSenha(usuario) {
 
 
-            $http.post('http://192.168.0.10:8080/Vacinacao/rest/usuario/redefinirSenha', usuario)
+            $http.post('http://192.168.0.12:8080/Vacinacao/rest/usuario/redefinirSenha', usuario)
                 .success(function (resposta) {
 
                     if (resposta == 'OK') {

@@ -15,7 +15,7 @@
         function enviarEmailParaRecuperacaoDeSenha(usuario, $scope) {
 
 
-            $http.get('http://192.168.0.10:8080/Vacinacao/rest/usuario/pesquisarPorEmail/' + usuario.email)
+            $http.get('http://192.168.0.12:8080/Vacinacao/rest/usuario/pesquisarPorEmail/' + usuario.email)
                 .success(function (resposta) {
 
 

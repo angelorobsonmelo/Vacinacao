@@ -18,7 +18,7 @@
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-            $http.get('http://192.168.0.14:8080/Vacinacao/rest/vacina_usuario/listarTodasPorSequencialUsuario/' + usuario.sequencial)
+            $http.get('http://192.168.0.12:8080/Vacinacao/rest/vacina_usuario/listarTodasPorSequencialUsuario/' + usuario.sequencial)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
@@ -40,7 +40,7 @@
 
             var retorno = $q.defer();
 
-            $http.post('http://192.168.0.14:8080/Vacinacao/rest/vacina_usuario/salvar', vacinaUsuario)
+            $http.post('http://192.168.0.12:8080/Vacinacao/rest/vacina_usuario/salvar', vacinaUsuario)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
@@ -83,10 +83,12 @@
                 .cancel('Não');
             $mdDialog.show(confirm).then(function () {
 
-                $http.delete('http://192.168.0.14:8080/Vacinacao/rest/vacina_usuario/remover/' + vacinaUsuario.sequencial)
+                $http.delete('http://192.168.0.12:8080/Vacinacao/rest/vacina_usuario/remover/' + vacinaUsuario.sequencial)
                     .success(function (resposta) {
 
                         retorno.resolve(resposta);
+
+                        removerPorSequencialVacinaEUsuario(vacinaUsuario);
                     })
                     .error(function (resposta) {
 
@@ -168,7 +170,30 @@
 
             }
 
-            $http.post('http://192.168.0.14:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/salvar', notificacaoUsuarioVacinaDose())
+            $http.post('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/salvar', notificacaoUsuarioVacinaDose())
+                .success(function (resposta) {
+
+                    console.log(resposta);
+
+                })
+                .error(function (resposta) {
+                    console.log(resposta);
+
+                })
+
+
+        }
+
+
+        function removerPorSequencialVacinaEUsuario(vacina){
+
+
+            var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+            console.log(vacina);
+
+
+            $http.delete('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/removerPorSequencialVacinaEUsuario/' + vacina.vacinaVO.sequencial +'/'+ usuario.sequencial )
                 .success(function (resposta) {
 
                     console.log(resposta);

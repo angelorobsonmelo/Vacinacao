@@ -13,7 +13,7 @@
 
 			var retorno = $q.defer();
 
-			$http.get('http://192.168.0.14:8080/Vacinacao/rest/unidadeDeSaude/consultarTodas')
+			$http.get('http://192.168.0.12:8080/Vacinacao/rest/unidadeDeSaude/consultarTodas')
 			.success(function (resposta) {
 
 				retorno.resolve(resposta);
@@ -30,7 +30,7 @@
 
 			var retorno = $q.defer();
 
-			$http.post('http://192.168.0.14:8080/Vacinacao/rest/unidadeDeSaude/salvar', unidadeDeSaude)
+			$http.post('http://192.168.0.12:8080/Vacinacao/rest/unidadeDeSaude/salvar', unidadeDeSaude)
 			.success(function (resposta) {
 
 				retorno.resolve(resposta);
@@ -58,7 +58,7 @@
 			.cancel('Não');
 			$mdDialog.show(confirm).then(function() {
 
-				$http.delete('http://192.168.0.14:8080/Vacinacao/rest/unidadeDeSaude/remover/'+ unidadeDeSaude.sequencial)
+				$http.delete('http://192.168.0.12:8080/Vacinacao/rest/unidadeDeSaude/remover/'+ unidadeDeSaude.sequencial)
 				.success(function (resposta) {
 
 					retorno.resolve(resposta);
