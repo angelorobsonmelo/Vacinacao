@@ -219,13 +219,17 @@
                     angular.forEach(resposta, function (value, index) {
 
 
-                        console.log(moment(value.dataNotificacao).endOf('day').fromNow())
+                        var intervaloDaPrimeiroDose = moment(value.dataNotificacao).endOf('day').fromNow();
+
+                        resposta[index].intervaloDaPrimeiraDose = intervaloDaPrimeiroDose;
+
 
                     });
 
                     var dosesRestantesCopy = angular.copy(resposta);
 
                     $scope.dosesRestantes = dosesRestantesCopy;
+
 
                 })
 
