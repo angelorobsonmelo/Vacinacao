@@ -120,6 +120,8 @@
 
                             console.log(data);
 
+                            salvarAgendamento(data, value);
+
 
                         }
 
@@ -130,6 +132,38 @@
 
 
             });
+
+
+        }
+
+        function salvarAgendamento(data, value) {
+
+            var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+
+            var notificacaoUsuarioVacinaDose = function () {
+
+                return angular.toJson({
+                    "dataNotificacao": data,
+                    "vacinaVO": {"sequencial": value.vacinaVO.sequencial},
+                    "usuarioVO": {"sequencial": usuario.sequencial},
+                    "doseVO": {"sequencial": value.doseVO.sequencial}
+
+
+                });
+
+            }
+
+            $http.post('http://192.168.0.14:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/salvar', notificacaoUsuarioVacinaDose())
+                .success(function (resposta) {
+
+                    console.log(resposta);
+
+                })
+                .error(function (resposta) {
+                    console.log(resposta);
+
+                })
 
 
         }
