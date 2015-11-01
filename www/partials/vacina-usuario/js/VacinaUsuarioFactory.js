@@ -49,9 +49,20 @@
 
 
                 })
-                .error(function (resposta) {
+                .error(function (resposta, status) {
 
-                    console.log(resposta);
+                    if (status == 500) {
+
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.body))
+                                .title('Aviso!')
+                                .content('Você já cadastrou esta vacina!')
+                                .ariaLabel('Alert Dialog Demo')
+                                .ok('OK')
+                        );
+
+                    }
                 })
             return retorno.promise;
 
@@ -140,11 +151,14 @@
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
+            var myDate = new Date(data);
+
+            myDate = new Date(myDate.getUTCFullYear(), myDate.getUTCMonth(), myDate.getUTCDate());
 
             var notificacaoUsuarioVacinaDose = function () {
 
                 return angular.toJson({
-                    "dataNotificacao": data,
+                    "dataNotificacao": myDate,
                     "vacinaVO": {"sequencial": value.vacinaVO.sequencial},
                     "usuarioVO": {"sequencial": usuario.sequencial},
                     "doseVO": {"sequencial": value.doseVO.sequencial}
