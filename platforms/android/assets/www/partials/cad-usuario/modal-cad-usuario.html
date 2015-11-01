@@ -17,7 +17,7 @@
     <label>Name</label>
     <input name="name" id="name" ng-model="usuario.nome" ng-required="true">
     <div ng-messages="myForm.name.$error" ng-show="myForm.name.$touched">
-      <div ng-message="required">Campaign Name is required.</div>
+      <div ng-message="required">Campo obrigatório</div>
     </div>
   </md-input-container>
   
@@ -25,7 +25,7 @@
     <label>Sobrenome</label>
     <input name="sobrenome" id="sobrenome" ng-model="usuario.sobrenome" ng-required="true">
     <div ng-messages="myForm.sobrenome.$error" ng-show="myForm.sobrenome.$touched">
-      <div ng-message="required">Campaign Name is required.</div>
+      <div ng-message="required">Campo obrigatório</div>
     </div>
   </md-input-container>
 
@@ -42,23 +42,26 @@
     <label>Email</label>
     <input name="email" id="email" type="email" ng-model="usuario.email" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
     <div ng-messages="myForm.email.$error" ng-show="myForm.email.$touched">
-      <div ng-message="required">Campaign Name is required.</div>
+      <div ng-message="required">Campo obrigatório</div>
     </div>
   </md-input-container>
   
   <md-input-container flex="100">
     <label>Senha</label>
-    <input name="senha" id="senha" type="password" ng-model="usuario.senha" ng-required="true">
-    <div ng-messages="myForm.senha.$error" ng-show="myForm.senha.$touched">
-      <div ng-message="required">Campaign Name is required.</div>
+
+      <input  type="password" class="form-control input-lg" id="txtSenha" name="senha" type="password" required placeholder="Senha" title="Senha" ng-model="usuario.senha"/><br />
+
+      <div ng-messages="myForm.senha.$error" ng-show="myForm.senha.$touched">
+      <div ng-message="required">Campo obrigatório</div>
     </div>
   </md-input-container>
   
   <md-input-container flex="100">
     <label>Confirmar Senha</label>
-    <input name="confirmar" id="confirmar" type="password" ng-model="obj.con" ng-required="true">
-    <div ng-messages="myForm.confirmar.$error" ng-show="myForm.confirmar.$touched">
-      <div ng-message="required">Campaign Name is required.</div>
+      <input type="password" class="form-control input-lg" ng-model="repetirSenha" id="repetir_senha" name="repetir_senha" type="password" required  placeholder="Repetir Senha" title="Repetir Senha" oninput="validaSenha(this)"  /><br />
+
+    <div ng-messages="myForm.repetir_senha.$error" ng-show="myForm.repetir_senha.$touched">
+      <div ng-message="required">Campo obrigatório.</div>
     </div>
   </md-input-container>
   

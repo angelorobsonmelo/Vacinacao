@@ -1,0 +1,88 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+
+    <form ng-submit="salvarVacinaUsuario()" name="myForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Salvar Vacina Dose Intervalo</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" type="button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="autoScroll">
+
+
+            {{vacinaUsuario.vacinaVO.nome}}
+            <md-input-container flex="100">
+                <md-select name="myselect" ng-change="verDosesVacina()" id="myselect" placeholder="Escolha a Vacina qual quer substituir" ng-model="vacinaUsuario.vacinaVO"
+                           ng-required="true"
+                        >
+                    <md-option ng-repeat="vacina in vacinas | orderBy: 'nome'" ng-value="vacina">{{vacina.nome}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="myForm.myselect.$error" ng-show="myForm.myselect.$touched">
+                    <div ng-message="required">Campo obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100" ng-show="doses">
+                <md-select name="dosesSelect"  id="dosesSelect" placeholder="Doses" ng-model="dose"
+                           ng-required="true"
+                        >
+                    <md-option ng-repeat="dose in doses | orderBy: 'descricao'" ng-value="dose">{{dose.doseVO.descricao}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="myForm.dosesSelect.$error" ng-show="myForm.dosesSelect.$touched">
+                    <div ng-message="required">Campo obrigatório.</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100">
+                <label>Local</label>
+                <input name="local" id="local" ng-model="vacinaUsuario.local" ng-required="true">
+
+                <div ng-messages="myForm.local.$error" ng-show="myForm.local.$touched">
+                    <div ng-message="required">Campo Obrigatório</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100">
+
+                <label>Data da Vacinação</label>
+                <input name="dataVacinacao" id="dataVacinacao" type="date" ng-model="vacinaUsuario.dataVacinacao" md-placeholder="Enter date" />
+                <div ng-messages="myForm.dataVacinacao.$error" ng-show="myForm.dataVacinacao.$touched">
+                    <div ng-message="required">Campo Obrigatório</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container flex="100">
+
+                <label>Lote</label>
+                <input name="lote" id="lote" type="text" ng-model="vacinaUsuario.lote" md-placeholder="Enter date" />
+                <div ng-messages="myForm.lote.$error" ng-show="myForm.lote.$touched">
+                    <div ng-message="required">Campo Obrigatório</div>
+                </div>
+            </md-input-container>
+
+
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+
+            <span flex></span>
+
+            <md-button type="button" ng-click="cancel()" class="md-primary">
+                Cancelar
+            </md-button>
+            <md-button class="md-primary" ng-disabled="myForm.$invalid">SUBMIT</md-button>
+        </div>
+    </form>
+</md-dialog>
+
+
+
+

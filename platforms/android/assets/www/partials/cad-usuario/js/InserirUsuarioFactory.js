@@ -19,7 +19,7 @@
 
 			console.log(usuario);
 			
-			$http.post('http://192.168.0.14:8080/Vacinacao/rest/usuario/inserir', usuario)
+			$http.post('http://192.168.0.12:8080/Vacinacao/rest/usuario/inserir', usuario)
 			.success(function(data) {
 
 				retorno.resolve(data);
