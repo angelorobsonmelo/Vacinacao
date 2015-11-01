@@ -185,7 +185,7 @@
         }
 
 
-        function removerPorSequencialVacinaEUsuario(vacina){
+        function removerPorSequencialVacinaEUsuario(vacina) {
 
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
@@ -193,7 +193,7 @@
             console.log(vacina);
 
 
-            $http.delete('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/removerPorSequencialVacinaEUsuario/' + vacina.vacinaVO.sequencial +'/'+ usuario.sequencial )
+            $http.delete('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/removerPorSequencialVacinaEUsuario/' + vacina.vacinaVO.sequencial + '/' + usuario.sequencial)
                 .success(function (resposta) {
 
                     console.log(resposta);
@@ -207,11 +207,39 @@
 
         }
 
+
+        function buscarTodosPorSequencialUsuarioEVacina(vacinaUsuario) {
+
+
+            var retorno = $q.defer();
+
+
+            var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+            $http.get('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/buscarTodosPorSequencialUsuarioEVacina/' + usuario.sequencial + '/' + vacinaUsuario.vacinaVO.sequencial)
+                .success(function (resposta) {
+
+                    console.log(resposta);
+
+                    retorno.resolve(resposta);
+
+                })
+                .error(function (resposta, status) {
+                    console.log(status);
+
+                })
+
+            return retorno.promise;
+
+
+        }
+
         return {
 
             listarTodasPorSequencialUsuario: listarTodasPorSequencialUsuario,
             salvarVacinaUsuario: salvarVacinaUsuario,
-            remover: remover
+            remover: remover,
+            buscarTodosPorSequencialUsuarioEVacina: buscarTodosPorSequencialUsuarioEVacina
 
         }
 

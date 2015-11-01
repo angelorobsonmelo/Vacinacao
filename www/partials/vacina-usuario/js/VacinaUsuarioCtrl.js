@@ -29,7 +29,7 @@
 
                 $scope.vacinasUsuario = vacinasUsuarioCopy;
 
-              //  console.log($scope.vacinasUsuario);
+                //  console.log($scope.vacinasUsuario);
 
 
             });
@@ -88,7 +88,7 @@
 
             vacinaUsuario.dataVacinacao = myDate;
 
-         //   console.log(vacinaUsuario);
+            //   console.log(vacinaUsuario);
 
             $mdDialog.show({
                 controller: DialogController,
@@ -181,6 +181,58 @@
             $scope.answer = function (answer) {
                 $mdDialog.hide(answer);
             };
+        }
+
+
+        $scope.verDosesRestantes = function (vacinaUsuario, ev) {
+
+
+            $mdDialog.show({
+                controller: DosesRestantesCtrl,
+                templateUrl: 'partials/vacina-usuario/modals/vacina-usuario-ver-doses-restantes.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                resolve: {
+                    vacinaUsuario: function () {
+                        return vacinaUsuario;
+                    }
+                }
+            });
+
+
+        }
+
+
+        function DosesRestantesCtrl($scope, $mdDialog, $location, VacinaUsuarioFactory, vacinaUsuario) {
+
+            $scope.cancel = function() {
+                $mdDialog.cancel();
+            };
+
+            carregarDosesRestantes(vacinaUsuario);
+
+            function carregarDosesRestantes(vacinaUsuario) {
+
+                VacinaUsuarioFactory.buscarTodosPorSequencialUsuarioEVacina(vacinaUsuario).then(function (resposta) {
+
+
+                    angular.forEach(resposta, function (value, index) {
+
+
+                        console.log(moment(value.dataNotificacao).endOf('day').fromNow())
+
+                    });
+
+                    var dosesRestantesCopy = angular.copy(resposta);
+
+                    $scope.dosesRestantes = dosesRestantesCopy;
+
+                })
+
+
+            }
+
+
         }
 
 

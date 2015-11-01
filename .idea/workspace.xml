@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db228b20-9797-4d79-b988-a02e75b0d2d4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/campanha/js/CampanhaFactory.js" afterPath="$PROJECT_DIR$/www/partials/campanha/js/CampanhaFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/dose/js/DoseFactory.js" afterPath="$PROJECT_DIR$/www/partials/dose/js/DoseFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/esqueceu-senha/js/EsqueceuSenhaFactory.js" afterPath="$PROJECT_DIR$/www/partials/esqueceu-senha/js/EsqueceuSenhaFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/cad-usuario/js/InserirUsuarioFactory.js" afterPath="$PROJECT_DIR$/www/partials/cad-usuario/js/InserirUsuarioFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/intervalo/js/IntervaloFactory.js" afterPath="$PROJECT_DIR$/www/partials/intervalo/js/IntervaloFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/unidade-de-saude-lista/js/ListaUnidadeDeSaudeFactory.js" afterPath="$PROJECT_DIR$/www/partials/unidade-de-saude-lista/js/ListaUnidadeDeSaudeFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/login/js/LoginFactory.js" afterPath="$PROJECT_DIR$/www/partials/login/js/LoginFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/manual-do-viajante/js/ManualDoViajanteFactory.js" afterPath="$PROJECT_DIR$/www/partials/manual-do-viajante/js/ManualDoViajanteFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/redefinir-senha/js/RedefinirSenhaFactory.js" afterPath="$PROJECT_DIR$/www/partials/redefinir-senha/js/RedefinirSenhaFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/unidade-de-saude/js/UniadeDeSaudeFactory.js" afterPath="$PROJECT_DIR$/www/partials/unidade-de-saude/js/UniadeDeSaudeFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/vacina-dose-intervalo/js/VacinaDoseIntervaloFactory.js" afterPath="$PROJECT_DIR$/www/partials/vacina-dose-intervalo/js/VacinaDoseIntervaloFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/cad-vacina-administrador/js/VacinaFactory.js" afterPath="$PROJECT_DIR$/www/partials/cad-vacina-administrador/js/VacinaFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/partials/vacina-usuario/modals/vacina-usuario-ver-doses-restantes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js" afterPath="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioFactory.js" afterPath="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/vacina-fase-da-vida/js/VacinasFaseDaVidaFactory.js" afterPath="$PROJECT_DIR$/www/partials/vacina-fase-da-vida/js/VacinasFaseDaVidaFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html" afterPath="$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vacinacao.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,21 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
+      <file leaf-file-name="vacina-usuario-ver-doses-restantes.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/modals/vacina-usuario-ver-doses-restantes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-82.666664">
-              <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
+            <state vertical-scroll-proportion="-10.666667">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VacinaUsuarioFactory.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VacinaUsuarioCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.62224555">
+              <caret line="218" column="71" selection-start-line="218" selection-start-column="71" selection-end-line="218" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VacinaUsuarioFactory.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86149">
-              <caret line="200" column="18" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -78,8 +79,6 @@
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/partials/vacina-usuario/modals/salvar-vacina-usuario.html" />
         <option value="$PROJECT_DIR$/www/partials/vacina-usuario/modals/editar-vacina-usuario.html" />
-        <option value="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js" />
-        <option value="$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html" />
         <option value="$PROJECT_DIR$/www/partials/cad-usuario/js/InserirUsuarioFactory.js" />
         <option value="$PROJECT_DIR$/www/partials/cad-vacina-administrador/js/VacinaFactory.js" />
         <option value="$PROJECT_DIR$/www/partials/campanha/js/CampanhaFactory.js" />
@@ -94,6 +93,9 @@
         <option value="$PROJECT_DIR$/www/partials/vacina-dose-intervalo/js/VacinaDoseIntervaloFactory.js" />
         <option value="$PROJECT_DIR$/www/partials/vacina-fase-da-vida/js/VacinasFaseDaVidaFactory.js" />
         <option value="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioFactory.js" />
+        <option value="$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html" />
+        <option value="$PROJECT_DIR$/www/partials/vacina-usuario/modals/vacina-usuario-ver-doses-restantes.html" />
+        <option value="$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js" />
       </list>
     </option>
   </component>
@@ -228,6 +230,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modals" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vacinacao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vacinacao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vacina-usuario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vacinacao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vacinacao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vacinacao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vacinacao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -327,20 +403,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="66" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/modals/salvar-vacina-usuario.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding>
-            <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -399,14 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/partials/login/js/LoginCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/partials/campanha/js/CampanhaCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5666317">
@@ -449,13 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62203026">
           <caret line="32" column="71" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/partials/cad-usuario/modal-cad-usuario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33045357">
-          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="29" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -517,7 +570,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="41" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -529,22 +582,6 @@
           <folding>
             <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="93" selection-start-line="23" selection-start-column="93" selection-end-line="23" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -561,7 +598,7 @@
         <state vertical-scroll-proportion="-40.064518">
           <caret line="69" column="49" selection-start-line="69" selection-start-column="49" selection-end-line="69" selection-end-column="49" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -579,7 +616,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -613,7 +650,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -631,7 +668,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="69" column="49" selection-start-line="69" selection-start-column="49" selection-end-line="69" selection-end-column="49" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,7 +686,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -659,7 +696,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -711,7 +748,7 @@
         <state vertical-scroll-proportion="0.33997902">
           <caret line="153" column="49" selection-start-line="153" selection-start-column="49" selection-end-line="153" selection-end-column="49" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -721,7 +758,7 @@
         <state vertical-scroll-proportion="0.35886675">
           <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -746,8 +783,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86149">
-          <caret line="200" column="18" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/partials/cad-usuario/modal-cad-usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18466523">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/partials/login/js/LoginCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77439666">
+          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="112" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/vacina-usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.058315333">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/modals/vacina-usuario-ver-doses-restantes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.666667">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/partials/vacina-usuario/js/VacinaUsuarioCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62224555">
+          <caret line="218" column="71" selection-start-line="218" selection-start-column="71" selection-end-line="218" selection-end-column="71" />
           <folding />
         </state>
       </provider>

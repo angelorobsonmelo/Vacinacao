@@ -1,0 +1,50 @@
+<md-dialog aria-label="Mango (Fruit)" layout-padding style="height: 600px;padding: 24px; width: 808px;">
+
+    <form  name="myForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Doses Restantes</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" type="button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="autoScroll">
+
+
+            <md-content class="md-padding">
+
+                <h2 class="md-title">{{dosesRestantes[0].vacinaVO.nome}}</h2>
+
+                <md-card ng-repeat="doseRestante in dosesRestantes | orderBy:'doseRestante.dataNotificacao'">
+
+                    <md-card-content>
+
+                        <h2 class="md-title">Dose: {{doseRestante.doseVO.descricao}}</h2>
+
+                        <h2 class="md-title">Tomar dia: {{doseRestante.dataNotificacaoFormatadaBasica}}</h2>
+
+                    </md-card-content>
+
+                </md-card>
+                <br/>
+
+            </md-content>
+
+
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+
+            <span flex></span>
+
+            <md-button type="button" ng-click="cancel()" class="md-primary">
+                Voltar
+            </md-button>
+        </div>
+    </form>
+</md-dialog>
+
+
+
+
