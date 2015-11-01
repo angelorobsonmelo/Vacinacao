@@ -29,7 +29,7 @@
 
                 $scope.vacinasUsuario = vacinasUsuarioCopy;
 
-                console.log($scope.vacinasUsuario);
+              //  console.log($scope.vacinasUsuario);
 
 
             });
@@ -88,7 +88,7 @@
 
             vacinaUsuario.dataVacinacao = myDate;
 
-            console.log(vacinaUsuario);
+         //   console.log(vacinaUsuario);
 
             $mdDialog.show({
                 controller: DialogController,

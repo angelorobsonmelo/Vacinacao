@@ -25,7 +25,7 @@
                 })
                 .error(function (resposta) {
 
-                    console.log(resposta);
+                    // console.log(resposta);
                 })
             return retorno.promise;
 
@@ -93,26 +93,35 @@
         function agendarNotificacao($scope) {
 
 
-            //  console.log($scope.dose);
+            //console.log($scope.dose);
 
             //console.log($scope.vacinaUsuario);
 
+            var dias = 0;
 
             VacinaDoseIntervaloFactory.verTodasPorSequencialVacina($scope.vacinaUsuario.vacinaVO).then(function (resposta) {
 
 
                 angular.forEach(resposta, function (value, index) {
 
-
                     if ($scope.dose.doseVO.descricao != value.doseVO.descricao) {
 
-                        console.log(value.vacinaVO.nome);
+                        if (value.intervaloVO.dias >= $scope.dose.intervaloVO.dias) {
 
-                        console.log(value.doseVO.descricao);
+                            console.log(value.vacinaVO.nome);
 
-                        var data = moment($scope.vacinaUsuario.dataVacinacao).add(value.intervaloVO.dias, 'days').format('YYYY-MM-DD');
+                            console.log(value.doseVO.descricao);
 
-                        console.log(data);
+                            dias += value.intervaloVO.dias;
+
+                            console.log(dias);
+
+                            var data = moment($scope.vacinaUsuario.dataVacinacao).add(dias, 'days').format('YYYY-MM-DD');
+
+                            console.log(data);
+
+
+                        }
 
 
                     }
