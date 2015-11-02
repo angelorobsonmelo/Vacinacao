@@ -12,7 +12,7 @@
 
 			var retorno = $q.defer();
 
-			$http.get('http://192.168.0.12:8080/Vacinacao/rest/campanha/consultarTodos')
+			$http.get('http://192.168.0.9:8080/Vacinacao/rest/campanha/consultarTodos')
 			.success(function (resposta) {
 
 				retorno.resolve(resposta);
@@ -29,7 +29,7 @@
 
 			var retorno = $q.defer();
 
-			$http.post('http://192.168.0.12:8080/Vacinacao/rest/campanha/salvar', campanha)
+			$http.post('http://192.168.0.9:8080/Vacinacao/rest/campanha/salvar', campanha)
 			.success(function (resposta) {
 
 				retorno.resolve(resposta);
@@ -57,7 +57,7 @@
 			.cancel('Não');
 			$mdDialog.show(confirm).then(function() {
 
-				$http.delete('http://192.168.0.12:8080/Vacinacao/rest/campanha/remover/'+ campanha.sequencial)
+				$http.delete('http://192.168.0.9:8080/Vacinacao/rest/campanha/remover/'+ campanha.sequencial)
 				.success(function (resposta) {
 
 					retorno.resolve(resposta);
