@@ -10,70 +10,67 @@
     app.factory('ListaUnidadeDeSaudeMapaFactory', ['$q', '$rootScope', '$compile', function ($q, $rootScope, $compile) {
 
 
-    	function carregarLocalizacao() {
+		function carregarLocalizacao() {
 
 			navigator.geolocation.getCurrentPosition(function (pos) {
 
-				var myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-				var mapOptions = {
-						zoom: 14,
-						center: myLatlng
-				}
-
-				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map,
-					title: 'Eu!'
-				});
+				var myLatlng = new plugin.google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 
 
-				var content = "<div style='text: center;'><h4>EU</h4></div>";
-				var contentCompilad = $compile(content)($rootScope)
+				document.addEventListener("deviceready", function () {
 
+					var mapDiv = document.getElementById("map_canvas");
 
-
-				var infowindowEu = new google.maps.InfoWindow({
-					content: contentCompilad[0],
-
-				});
-
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindowEu.open(map,marker);
-				});
-
-
-				var unidadesDeSaude =  JSON.parse(localStorage.getItem("ListaUnidadeDeSaude"));
-
-
-				angular.forEach(unidadesDeSaude, function(valor, item) {
-
-
-
-					var contentStringUnidadeDeSaude = "<div><h1>" + valor.nome +" </h1> <a href='' ng-click='detalhes("+item+")'>Detalhes...</a></div>";
-					var compiledUnidadeDeSaude = $compile(contentStringUnidadeDeSaude)($rootScope)
-
-
-
-					var infowindow = new google.maps.InfoWindow({
-						content: compiledUnidadeDeSaude[0],
-
-					});
-
-					var unidadeDeSaude = new google.maps.Marker({
-						position: new google.maps.LatLng(valor.latitude, valor.longitude),
-						//icon: 'img/marcador-mapa-eu.png',
-						map: map,
-						title: valor.nome
-					});
-					google.maps.event.addListener(unidadeDeSaude, 'click', function() {
-						infowindow.open(map,unidadeDeSaude);
+					var map = plugin.google.maps.Map.getMap(mapDiv, {
+						'camera': {
+							'latLng': myLatlng,
+							'zoom': 17
+						}
 					});
 
 
-				}, function (error) {
-					alert('Unable to get location: ' + error.message);
+					map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
+
+						map.addMarker({
+							'position': myLatlng,
+							'title': "Este sou eu!!"
+						}, function (marker) {
+
+							marker.showInfoWindow();
+
+						});
+
+						var unidadesDeSaude = JSON.parse(localStorage.getItem("ListaUnidadeDeSaude"));
+
+
+						angular.forEach(unidadesDeSaude, function (valor, item) {
+
+
+							map.addMarker({
+								'position': new plugin.google.maps.LatLng(valor.latitude, valor.longitude),
+								'title': valor.nome,
+								'snippet': "Click no balão apra mais detalhes",
+								'markerClick': function (marker) {
+									marker.showInfoWindow();
+								},
+								'infoClick': function () {
+
+									$rootScope.unidadeDeSaudeDetalhes = valor;
+
+									window.location = "index.html#/detalhes-unidade-de-saude";
+								}
+
+							});
+
+
+						}, function (error) {
+							alert('Unable to get location: ' + error.message);
+						});
+
+
+					});
+
+
 				});
 
 			});

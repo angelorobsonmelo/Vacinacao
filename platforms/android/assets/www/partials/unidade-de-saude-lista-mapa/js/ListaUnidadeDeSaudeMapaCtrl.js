@@ -23,23 +23,6 @@
 
 		ListaUnidadeDeSaudeMapaFactory.carregarLocalizacao();
 
-		$scope.detalhes = function() {
-
-			alert("ok");
-		}
-
-		$rootScope.detalhes = function(indice) {
-			
-			var unidadesDeSaude =  JSON.parse(localStorage.getItem("ListaUnidadeDeSaude"));
-			
-			$rootScope.unidadeDeSaudeDetalhes = unidadesDeSaude[indice];
-			$location.path('detalhes-unidade-de-saude');
-//			$scope.map.getCenter();
-
-		};
-
-
-
 
 	}]);
 
