@@ -33,10 +33,7 @@
 
 						map.addMarker({
 							'position': myLatlng,
-							'title': "Este sou eu!!",
-							'icon': {
-								url: 'img/icone_unidade_de_saude.png'
-							}
+							'title': "Este sou eu!!"
 						}, function (marker) {
 
 							marker.showInfoWindow();

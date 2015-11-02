@@ -106,12 +106,14 @@
 							listaDeUnidadeDeSaude[indice] = unidadeDeSaude;
 							console.log("empresa alterada no array: nome: "+listaDeUnidadeDeSaude[indice].nome+" - distancia: "+listaDeUnidadeDeSaude[indice].distancia +" - duracao: "+listaDeUnidadeDeSaude[indice].duracao +" - id: "+listaDeUnidadeDeSaude[indice].sequencial + "Distância bruta: " + listaDeUnidadeDeSaude[indice].distanciaBruta);
 							console.log("Tamanho do array: "+listaDeUnidadeDeSaude.length);
+                            ordenarLista();
 
 						}
 					}
 
 					if(indice == listaDeUnidadeDeSaude.length - 1){
-						ordenarLista();
+
+
 					}
 
 				}else{

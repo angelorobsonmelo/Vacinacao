@@ -3,62 +3,59 @@
  */
 (function () {
 
-	'use strict';
+    'use strict';
 
-	app.controller('UnidadeDeSaudeListaCtrl', ['$scope', 'UnidadeDeSaudeListaFactory', '$rootScope', '$location', '$window', function ($scope, UnidadeDeSaudeListaFactory, $rootScope, $location, $window) {
-		$scope.unidadesDeSaudesFront = '';
-		
-		$rootScope.activetab = $location.path();
+    app.controller('UnidadeDeSaudeListaCtrl', ['$scope', 'UnidadeDeSaudeListaFactory', '$rootScope', '$location', '$window', function ($scope, UnidadeDeSaudeListaFactory, $rootScope, $location, $window) {
+        $scope.unidadesDeSaudesFront = '';
 
-		$rootScope.mostrarMenuEscolhido = function() {
+        $rootScope.activetab = $location.path();
 
-			$rootScope.tgState = false;
+        $rootScope.mostrarMenuEscolhido = function () {
 
-		}
+            $rootScope.tgState = false;
 
-		$rootScope.esconderHeader = false;
-		$rootScope.titulo = 'Lista de Unidade de Saúde';
-		 
-		
-		var array;
-		
-		
-		carregarLista();
-		function carregarLista(){
+        }
 
-		//UnidadeDeSaudeListaFactory.pegarMinhalocalizacao();
+        $rootScope.esconderHeader = false;
+        $rootScope.titulo = 'Lista de Unidade de Saúde';
 
 
-			var listaDeUnidadesDeSaude = JSON.parse(localStorage.getItem("ListaUnidadeDeSaude"));
+        var array;
 
 
-			$scope.unidadesDeSaudesFront = listaDeUnidadesDeSaude;
+        carregarLista();
+        function carregarLista() {
+
+            //UnidadeDeSaudeListaFactory.pegarMinhalocalizacao();
 
 
-		}
-
-		$scope.verNoMapa = function(obj) {
-
-			localStorage.setItem('unidadeDeSaude', angular.toJson(obj));
-
-			$rootScope.unidadeDeSaudeDetalhes = obj;
-
-			$location.path('ver-unidade-de-saude-no-mapa');
-
-		}
-
-		$scope.tracarRota = function(obj) {
-
-			localStorage.setItem('objParaRota', angular.toJson(obj));
-
-			$location.path('rota/'+JSON.stringify(obj));
-
-		}
+            var listaDeUnidadesDeSaude = JSON.parse(localStorage.getItem("ListaUnidadeDeSaude"));
 
 
+            $scope.unidadesDeSaudesFront = listaDeUnidadesDeSaude;
 
 
+        }
 
-	}]);
+        $scope.verNoMapa = function (obj) {
+
+            localStorage.setItem('unidadeDeSaude', angular.toJson(obj));
+
+            $rootScope.unidadeDeSaudeDetalhes = obj;
+
+            $location.path('ver-unidade-de-saude-no-mapa');
+
+        }
+
+        $scope.tracarRota = function (obj) {
+
+            localStorage.setItem('objParaRota', angular.toJson(obj));
+
+            $location.path('rota/' + JSON.stringify(obj));
+
+        }
+
+
+    }]);
 
 }());

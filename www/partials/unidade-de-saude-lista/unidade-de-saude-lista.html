@@ -1,36 +1,36 @@
-
-<md-content> <md-list> <md-list-item
-	class="md-3-line"
-	ng-repeat="item in unidadesDeSaudesFront | orderBy:'distanciaBruta'">
-<div class="md-list-item-text">
-    <h4>Nome:</h4>
-	<b><h3>{{item.nome}}</h3></b>
-	<h4>Rua:</h4>
-	<h4>{{item.logradouro}}</h4>
-	<h4>Cidade:</h4>
-	<h4>{{item.cidade}}</h4>
-	<h4>Bairro:</h4>
-	<h4>{{item.bairro}}</h4>
-	<h4>Estado:</h4>
-	<h4>{{item.estado}}</h4>
-	<h4>Distância:</h4>
-	<h4>{{item.distancia}}</h4>
-	<h4>Tempo:</h4>
-	<h4>{{item.duracao}}</h4>
-
-
-	<button type="button" class="button positive" ng-click="verNoMapa(item)">Ver no
-		Mapa</button>
-	<button type="button" ng-click="tracarRota(item)">Traçar Rota</button>
-	
-	
-
-</div>
-<md-divider ng-if="!$last"></md-divider> </md-list-item> </md-list>
+<md-content>
+    <md-list>
+        <md-list-item
+                class="md-3-line"
+                ng-repeat="item in unidadesDeSaudesFront | orderBy:'distanciaBruta'">
+            <div class="md-list-item-text">
+                <h4>Nome:</h4>
+                <b><h3>{{item.nome}}</h3></b>
+                <h4>Rua:</h4>
+                <h4>{{item.logradouro}}</h4>
+                <h4>Cidade:</h4>
+                <h4>{{item.cidade}}</h4>
+                <h4>Bairro:</h4>
+                <h4>{{item.bairro}}</h4>
+                <h4>Estado:</h4>
+                <h4>{{item.estado}}</h4>
+                <h4>Distância:</h4>
+                <h4>{{item.distancia}}</h4>
+                <h4>Tempo:</h4>
+                <h4>{{item.duracao}}</h4>
 
 
+                <!-- <button type="button" class="button positive" ng-click="verNoMapa(item)">Ver no Mapa</button> -->
+                <button type="button" ng-click="tracarRota(item)">Traçar Rota</button>
 
- </md-content>
+
+            </div>
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+
+
+</md-content>
 
 </div>
 
@@ -73,7 +73,6 @@
 <!-- 		</tbody> -->
 
 <!-- 	</table> -->
-
 
 
 <!-- </div> -->

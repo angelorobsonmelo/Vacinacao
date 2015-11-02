@@ -3,88 +3,149 @@
  */
 (function () {
 
-	'use strict';
+    'use strict';
+
+
+    app.factory('VerUnidadeDeSaudeNoMapaFactory', ['$q', '$rootScope', '$compile', function ($q, $rootScope, $compile) {
+
+
+        function carregarLocalizacao() {
+
+
+            var unidadesDeSaudeLocalStorage = JSON.parse(localStorage.getItem("unidadeDeSaude"));
+
+            navigator.geolocation.getCurrentPosition(function (pos) {
+
+                var myLatlng = new plugin.google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+
+
+                document.addEventListener("deviceready", function () {
+
+                    var mapDiv = document.getElementById("map_canvas");
+
+                    var map = plugin.google.maps.Map.getMap(mapDiv, {
+                        'camera': {
+                            'latLng': myLatlng,
+                            'zoom': 17
+                        }
+                    });
+
+
+                    map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
+
+                        map.addMarker({
+                            'position': myLatlng,
+                            'title': "Este sou eu!!"
+                        }, function (marker) {
+
+                            marker.showInfoWindow();
+
+                        });
+
+                        map.addMarker({
+                            'position': new plugin.google.maps.LatLng(unidadesDeSaudeLocalStorage.latitude, unidadesDeSaudeLocalStorage.longitude),
+                            'title': unidadesDeSaudeLocalStorage.nome,
+                            'snippet': "Click no balão para mais detalhes",
+                            'markerClick': function (marker) {
+                                marker.showInfoWindow();
+                            },
+                            'infoClick': function () {
+
+                                $rootScope.unidadeDeSaudeDetalhes = unidadesDeSaudeLocalStorage;
+
+                                window.location = "index.html#/detalhes-unidade-de-saude";
+                            }
+
+                        });
+
+
+                    });
+
+
+                });
+
+            });
+        }
+
+
+        /*
+         function carregarLocalizacao() {
+
+         var unidadesDeSaudeLocalStorage =  JSON.parse(localStorage.getItem("unidadeDeSaude"));
+
+         navigator.geolocation.getCurrentPosition(function (pos) {
+
+         var myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+
+         var postoDeSaudeCarregar = new google.maps.LatLng(unidadesDeSaudeLocalStorage.latitude, unidadesDeSaudeLocalStorage.longitude);
+
+         var mapOptions = {
+         zoom: 14,
+         center: postoDeSaudeCarregar
+         }
+
+         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+         var marker = new google.maps.Marker({
+         position: myLatlng,
+         map: map,
+         title: 'Eu!'
+         });
+
+
+         var content = "<div style='text: center;'><h4>EU</h4></div>";
+         var contentCompilad = $compile(content)($rootScope)
 
 
 
-	app.factory('VerUnidadeDeSaudeNoMapaFactory', ['$q', '$rootScope', '$compile', function ($q, $rootScope, $compile) {
+         var infowindowEu = new google.maps.InfoWindow({
+         content: contentCompilad[0],
 
+         });
 
-		function carregarLocalizacao() {
-
-			var unidadesDeSaudeLocalStorage =  JSON.parse(localStorage.getItem("unidadeDeSaude"));
-			
-			navigator.geolocation.getCurrentPosition(function (pos) {
-
-				var myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-				
-				var postoDeSaudeCarregar = new google.maps.LatLng(unidadesDeSaudeLocalStorage.latitude, unidadesDeSaudeLocalStorage.longitude);
-				
-				var mapOptions = {
-						zoom: 14,
-						center: postoDeSaudeCarregar
-				}
-
-				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map,
-					title: 'Eu!'
-				});
-
-
-				var content = "<div style='text: center;'><h4>EU</h4></div>";
-				var contentCompilad = $compile(content)($rootScope)
-
-
-
-				var infowindowEu = new google.maps.InfoWindow({
-					content: contentCompilad[0],
-
-				});
-
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindowEu.open(map,marker);
-				});
+         google.maps.event.addListener(marker, 'click', function() {
+         infowindowEu.open(map,marker);
+         });
 
 
 
 
-				var contentStringUnidadeDeSaude = "<div><h1>" + unidadesDeSaudeLocalStorage.nome +" </h1> <a href='' ng-click='detalhes()'>Detalhes...</a></div>";
-				var compiledUnidadeDeSaude = $compile(contentStringUnidadeDeSaude)($rootScope)
+         var contentStringUnidadeDeSaude = "<div><h1>" + unidadesDeSaudeLocalStorage.nome +" </h1> <a href='' ng-click='detalhes()'>Detalhes...</a></div>";
+         var compiledUnidadeDeSaude = $compile(contentStringUnidadeDeSaude)($rootScope)
 
 
 
-				var infowindow = new google.maps.InfoWindow({
-					content: compiledUnidadeDeSaude[0],
+         var infowindow = new google.maps.InfoWindow({
+         content: compiledUnidadeDeSaude[0],
 
-				});
+         });
 
-				var unidadeDeSaude = new google.maps.Marker({
-					position: new google.maps.LatLng(unidadesDeSaudeLocalStorage.latitude, unidadesDeSaudeLocalStorage.longitude),
-					//icon: 'img/marcador-mapa-eu.png',
-					map: map,
-					title: unidadesDeSaudeLocalStorage.nome
-				});
-				google.maps.event.addListener(unidadeDeSaude, 'click', function() {
-					infowindow.open(map,unidadeDeSaude);
-				});
-
-
-			}, function (error) {
-				alert('Unable to get location: ' + error.message);
-			});
-
-		
-	}
+         var unidadeDeSaude = new google.maps.Marker({
+         position: new google.maps.LatLng(unidadesDeSaudeLocalStorage.latitude, unidadesDeSaudeLocalStorage.longitude),
+         //icon: 'img/marcador-mapa-eu.png',
+         map: map,
+         title: unidadesDeSaudeLocalStorage.nome
+         });
+         google.maps.event.addListener(unidadeDeSaude, 'click', function() {
+         infowindow.open(map,unidadeDeSaude);
+         });
 
 
-	return{
-		carregarLocalizacao: carregarLocalizacao
+         }, function (error) {
+         alert('Unable to get location: ' + error.message);
+         });
 
-	}
 
-}]);
+         }
+
+         */
+
+
+        return {
+            carregarLocalizacao: carregarLocalizacao
+
+        }
+
+    }]);
 
 }());
