@@ -29,6 +29,13 @@ module.exports = [
         "clobbers": [
             "PushNotification"
         ]
+    },
+    {
+        "file": "plugins/plugin.google.maps/www/googlemaps-cdv-plugin.js",
+        "id": "plugin.google.maps.phonegap-googlemaps-plugin",
+        "clobbers": [
+            "plugin.google.maps"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -38,7 +45,8 @@ module.exports.metadata =
     "cordova-plugin-device": "1.0.2-dev",
     "cordova-plugin-x-toast": "2.2.1",
     "com.phonegap.plugins.PushPlugin": "2.5.0",
-    "org.apache.cordova.geolocation": "0.3.12"
+    "org.apache.cordova.geolocation": "0.3.12",
+    "plugin.google.maps": "1.3.4"
 }
 // BOTTOM OF METADATA
 });

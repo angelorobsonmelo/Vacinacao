@@ -63,6 +63,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'VacinaUsuarioCtrl',
             templateUrl: 'partials/vacina-usuario/vacina-usuario.html'
         })
+        .when('/phonegapMap', {
+            controller: 'MapaTesteCtrl',
+            templateUrl: 'partials/mapa-teste/mapa-teste.html'
+        })
 
         .otherwise('/');
 }]);
