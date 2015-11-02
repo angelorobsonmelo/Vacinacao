@@ -78,12 +78,12 @@
 
 			});
 		}
-      
 
-        
-     
+
+
+
         return{
-           
+
         	carregarLocalizacao: carregarLocalizacao
         }
 
