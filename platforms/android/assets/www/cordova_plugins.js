@@ -36,6 +36,13 @@ module.exports = [
         "clobbers": [
             "plugin.google.maps"
         ]
+    },
+    {
+        "file": "plugins/hu.dpal.phonegap.plugins.SpinnerDialog/www/spinner.js",
+        "id": "hu.dpal.phonegap.plugins.SpinnerDialog.SpinnerDialog",
+        "merges": [
+            "window.plugins.spinnerDialog"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -46,7 +53,8 @@ module.exports.metadata =
     "cordova-plugin-x-toast": "2.2.1",
     "com.phonegap.plugins.PushPlugin": "2.5.0",
     "org.apache.cordova.geolocation": "0.3.12",
-    "plugin.google.maps": "1.3.4"
+    "plugin.google.maps": "1.3.4",
+    "hu.dpal.phonegap.plugins.SpinnerDialog": "1.3.1"
 }
 // BOTTOM OF METADATA
 });

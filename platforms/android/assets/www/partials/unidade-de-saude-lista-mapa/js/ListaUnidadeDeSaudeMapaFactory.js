@@ -24,7 +24,7 @@
 					var map = plugin.google.maps.Map.getMap(mapDiv, {
 						'camera': {
 							'latLng': myLatlng,
-							'zoom': 17
+							'zoom': 13
 						}
 					});
 
@@ -68,9 +68,12 @@
 						});
 
 
+
+
 					});
 
 
+                    window.plugins.spinnerDialog.hide();
 				});
 
 			});

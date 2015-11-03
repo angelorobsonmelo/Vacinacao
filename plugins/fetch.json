@@ -43,5 +43,14 @@
         "variables": {
             "API_KEY_FOR_ANDROID": "AIzaSyAGevwkk7Pb6az0vP3RvDRmdrB05odBjkg"
         }
+    },
+    "hu.dpal.phonegap.plugins.SpinnerDialog": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Paldom/SpinnerDialog.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
