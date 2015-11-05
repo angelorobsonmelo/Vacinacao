@@ -15,7 +15,7 @@
 		$rootScope.activetab = $location.path();
 
 
-		window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
 
 
 		$rootScope.mostrarMenuEscolhido = function() {

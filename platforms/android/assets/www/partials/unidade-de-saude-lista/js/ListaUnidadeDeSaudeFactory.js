@@ -43,7 +43,9 @@
 
 		function conectarServidor(){
 
-			$http.get('http://192.168.0.9:8080/Vacinacao/rest/unidadeDeSaude/consultarTodas')
+			window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
+			$http.get('http://192.168.0.20:8080/Vacinacao/rest/unidadeDeSaude/consultarTodas')
 				.success(function (retorno) {
 
 
@@ -51,10 +53,17 @@
 
 					listarUnidadeDeSaude();
 
+					window.plugins.spinnerDialog.hide();
+
 
 				})
-				.error(function (data) {
+				.error(function (data, status) {
+
+					window.plugins.spinnerDialog.hide();
+
 					console.log(data);
+					alert(status)
+
 				});
 
 		}

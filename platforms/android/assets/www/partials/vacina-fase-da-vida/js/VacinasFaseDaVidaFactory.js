@@ -15,16 +15,25 @@
         function pesquisarVacinasPorFaseDaVida(sequencialFaseDaVida) {
 
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/vacina_fase_da_vida/listarTodas/' + sequencialFaseDaVida)
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/vacina_fase_da_vida/listarTodas/' + sequencialFaseDaVida)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
-                })
-                .error(function (resposta, status) {
 
-                    console.log(resposta + ' ' + status);
+                    window.plugins.spinnerDialog.hide();
+
+                })
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
+                    console.log(data);
+                    alert(status)
+
                 })
 
 

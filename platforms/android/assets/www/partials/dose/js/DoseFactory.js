@@ -14,17 +14,26 @@
 
         function verTodas() {
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/dose/listarTodas')
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/dose/listarTodas')
                 .success(function (resposta) {
 
 
                     retorno.resolve(resposta);
 
+                    window.plugins.spinnerDialog.hide();
+
                 })
-                .error(function (data) {
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
                     console.log(data);
+                    alert(status)
+
                 })
 
             return retorno.promise;
@@ -36,15 +45,20 @@
 
             var retorno = $q.defer();
 
-            $http.post('http://192.168.0.12:8080/Vacinacao/rest/dose/salvar', dose)
+            $http.post('http://192.168.0.20:8080/Vacinacao/rest/dose/salvar', dose)
                 .success(function (resposta) {
 
 
                     retorno.resolve(resposta);
 
                 })
-                .error(function (data) {
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
                     console.log(data);
+                    alert(status)
+
                 })
 
             return retorno.promise;
@@ -67,7 +81,7 @@
                 .cancel('Não');
             $mdDialog.show(confirm).then(function() {
 
-                $http.delete('http://192.168.0.12:8080/Vacinacao/rest/dose/remover/'+ dose.sequencial)
+                $http.delete('http://192.168.0.20:8080/Vacinacao/rest/dose/remover/'+ dose.sequencial)
                     .success(function (resposta) {
 
                         retorno.resolve(resposta);

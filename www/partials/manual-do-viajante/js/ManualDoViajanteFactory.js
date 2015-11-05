@@ -14,17 +14,24 @@
 
         function pesquisarVacinasDaRegiao(sequencialRegiao) {
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
 
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/regiao_vacina_viajante/listarTodasPorSequencialRegiao/' + sequencialRegiao)
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/regiao_vacina_viajante/listarTodasPorSequencialRegiao/' + sequencialRegiao)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
-                })
-                .error(function (resposta, status) {
 
-                    console.log(resposta + ' ' + status);
+                    window.plugins.spinnerDialog.hide();
+                })
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
+                    console.log(data);
+                    alert(status)
+
                 })
 
 

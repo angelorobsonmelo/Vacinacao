@@ -14,24 +14,33 @@
 
         function listarTodasPorSequencialUsuario() {
 
+            window.plugins.spinnerDialog.show("vacinação", "Carregando...", false);
+
             var retorno = $q.defer();
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/vacina_usuario/listarTodasPorSequencialUsuario/' + usuario.sequencial)
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/vacina_usuario/listarTodasPorSequencialUsuario/' + usuario.sequencial)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
-                })
-                .error(function (resposta) {
 
-                    // console.log(resposta);
+                    window.plugins.spinnerDialog.hide();
+
+
+                })
+                .error(function (resposta, status) {
+
+                    window.plugins.spinnerDialog.hide();
+                    alert(status);
                 })
             return retorno.promise;
 
         }
 
         function salvarVacinaUsuario(vacinaUsuario, $scope) {
+
+            window.plugins.spinnerDialog.show("vacinação", "Carregando...", false);
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
@@ -40,12 +49,14 @@
 
             var retorno = $q.defer();
 
-            $http.post('http://192.168.0.12:8080/Vacinacao/rest/vacina_usuario/salvar', vacinaUsuario)
+            $http.post('http://192.168.0.20:8080/Vacinacao/rest/vacina_usuario/salvar', vacinaUsuario)
                 .success(function (resposta) {
 
                     retorno.resolve(resposta);
 
                     agendarNotificacao($scope);
+
+                    window.plugins.spinnerDialog.hide();
 
 
                 })
@@ -63,6 +74,8 @@
                         );
 
                     }
+
+                    window.plugins.spinnerDialog.hide();
                 })
             return retorno.promise;
 
@@ -83,7 +96,7 @@
                 .cancel('Não');
             $mdDialog.show(confirm).then(function () {
 
-                $http.delete('http://192.168.0.12:8080/Vacinacao/rest/vacina_usuario/remover/' + vacinaUsuario.sequencial)
+                $http.delete('http://192.168.0.20:8080/Vacinacao/rest/vacina_usuario/remover/' + vacinaUsuario.sequencial)
                     .success(function (resposta) {
 
                         retorno.resolve(resposta);
@@ -170,10 +183,11 @@
 
             }
 
-            $http.post('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/salvar', notificacaoUsuarioVacinaDose())
+            $http.post('http://192.168.0.20:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/salvar', notificacaoUsuarioVacinaDose())
                 .success(function (resposta) {
 
                     console.log(resposta);
+
 
                 })
                 .error(function (resposta) {
@@ -193,7 +207,7 @@
             console.log(vacina);
 
 
-            $http.delete('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/removerPorSequencialVacinaEUsuario/' + vacina.vacinaVO.sequencial + '/' + usuario.sequencial)
+            $http.delete('http://192.168.0.20:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/removerPorSequencialVacinaEUsuario/' + vacina.vacinaVO.sequencial + '/' + usuario.sequencial)
                 .success(function (resposta) {
 
                     console.log(resposta);
@@ -210,22 +224,28 @@
 
         function buscarTodosPorSequencialUsuarioEVacina(vacinaUsuario) {
 
-
+            window.plugins.spinnerDialog.show("vacinação", "Carregando...", false);
             var retorno = $q.defer();
 
 
             var usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/buscarTodosPorSequencialUsuarioEVacina/' + usuario.sequencial + '/' + vacinaUsuario.vacinaVO.sequencial)
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/notificacao_vacina_usuario_dose/buscarTodosPorSequencialUsuarioEVacina/' + usuario.sequencial + '/' + vacinaUsuario.vacinaVO.sequencial)
                 .success(function (resposta) {
 
                     console.log(resposta);
 
                     retorno.resolve(resposta);
 
+                    window.plugins.spinnerDialog.hide();
+
                 })
-                .error(function (resposta, status) {
-                    console.log(status);
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
+                    console.log(data);
+                    alert(status)
 
                 })
 

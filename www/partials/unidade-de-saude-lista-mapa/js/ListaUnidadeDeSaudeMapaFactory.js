@@ -12,6 +12,8 @@
 
 		function carregarLocalizacao() {
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
 			navigator.geolocation.getCurrentPosition(function (pos) {
 
 				var myLatlng = new plugin.google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);

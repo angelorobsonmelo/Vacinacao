@@ -14,17 +14,25 @@
 
         function verTodas() {
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
             var retorno = $q.defer();
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/intervalo/listarTodas')
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/intervalo/listarTodas')
                 .success(function (resposta) {
 
 
                     retorno.resolve(resposta);
+                    window.plugins.spinnerDialog.hide();
 
                 })
-                .error(function (data) {
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
                     console.log(data);
+                    alert(status)
+
                 })
 
             return retorno.promise;
@@ -34,17 +42,26 @@
 
         function salvarIntervalo(intervalo) {
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
             var retorno = $q.defer();
 
-            $http.post('http://192.168.0.12:8080/Vacinacao/rest/intervalo/salvar', intervalo)
+            $http.post('http://192.168.0.20:8080/Vacinacao/rest/intervalo/salvar', intervalo)
                 .success(function (resposta) {
 
 
                     retorno.resolve(resposta);
 
+                    window.plugins.spinnerDialog.hide();
+
                 })
-                .error(function (data) {
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
+
                     console.log(data);
+                    alert(status)
+
                 })
 
             return retorno.promise;
@@ -67,7 +84,7 @@
                 .cancel('Não');
             $mdDialog.show(confirm).then(function() {
 
-                $http.delete('http://192.168.0.12:8080/Vacinacao/rest/intervalo/remover/'+ intervalo.sequencial)
+                $http.delete('http://192.168.0.20:8080/Vacinacao/rest/intervalo/remover/'+ intervalo.sequencial)
                     .success(function (resposta) {
 
                         retorno.resolve(resposta);

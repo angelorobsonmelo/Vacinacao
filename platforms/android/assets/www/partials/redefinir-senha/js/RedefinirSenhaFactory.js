@@ -14,8 +14,9 @@
 
         function redefinirSenha(usuario) {
 
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
 
-            $http.post('http://192.168.0.12:8080/Vacinacao/rest/usuario/redefinirSenha', usuario)
+            $http.post('http://192.168.0.20:8080/Vacinacao/rest/usuario/redefinirSenha', usuario)
                 .success(function (resposta) {
 
                     if (resposta == 'OK') {
@@ -28,13 +29,20 @@
                                 .ariaLabel('Alert Dialog Demo')
                                 .ok('OK')
                         );
+
+                        window.plugins.spinnerDialog.hide();
+
                     }
 
 
                 })
-                .error(function (resposta) {
+                .error(function (data, status) {
 
-                    console.log(resposta);
+                    window.plugins.spinnerDialog.hide();
+
+                    console.log(data);
+                    alert(status)
+
                 })
 
         }

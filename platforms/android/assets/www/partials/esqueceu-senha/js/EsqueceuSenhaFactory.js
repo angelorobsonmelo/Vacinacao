@@ -15,7 +15,9 @@
         function enviarEmailParaRecuperacaoDeSenha(usuario, $scope) {
 
 
-            $http.get('http://192.168.0.12:8080/Vacinacao/rest/usuario/pesquisarPorEmail/' + usuario.email)
+            window.plugins.spinnerDialog.show("vacinação","Carregando...", false);
+
+            $http.get('http://192.168.0.20:8080/Vacinacao/rest/usuario/pesquisarPorEmail/' + usuario.email)
                 .success(function (resposta) {
 
 
@@ -32,6 +34,8 @@
                         );
 
                         $scope.usuario = null;
+
+                        window.plugins.spinnerDialog.hide();
 
                     } else {
 
@@ -51,9 +55,12 @@
 
 
                 })
-                .error(function (data) {
+                .error(function (data, status) {
+
+                    window.plugins.spinnerDialog.hide();
 
                     console.log(data);
+                    alert(status)
 
                 })
 
